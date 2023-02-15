@@ -7,6 +7,8 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({Key? key}) : super(key: key);
@@ -20,6 +22,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
+  bool isSignedIn = false;
+  bool isSignUpComplete = false;
 
   @override
   void initState() {
@@ -31,6 +35,50 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     _model.createAccountEmailAddressController = TextEditingController();
     _model.createAccountPasswordController = TextEditingController();
     _model.confirmPasswordController = TextEditingController();
+  }
+
+  Future<void> signIn(
+    BuildContext context,
+    String email,
+    String password,
+  ) async {
+    try {
+      final result = await Amplify.Auth.signIn(
+        username: email,
+        password: password,
+      );
+      setState(() {
+        print(result);
+        isSignedIn = result.isSignedIn;
+      });
+    } on AuthException catch (e) {
+      safePrint(e.message);
+    }
+  }
+
+  Future<SignUpResult> signUpUser(String email, String password) async {
+    SignUpResult result = new SignUpResult(
+        isSignUpComplete: false,
+        nextStep: new AuthNextSignUpStep(signUpStep: ""));
+    ;
+    try {
+      final userAttributes = <CognitoUserAttributeKey, String>{
+        CognitoUserAttributeKey.email: 'email@domain.com',
+        CognitoUserAttributeKey.phoneNumber: '+15559101234',
+        // additional attributes as needed
+      };
+      result = await Amplify.Auth.signUp(
+        username: email,
+        password: password,
+      );
+      setState(() {
+        print(result);
+        isSignUpComplete = result.isSignUpComplete;
+      });
+    } on AuthException catch (e) {
+      safePrint(e.message);
+    }
+    return result;
   }
 
   @override
@@ -262,7 +310,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         ),
                                         FFButtonWidget(
                                           onPressed: () {
-                                            print('LoginButton pressed ...');
+                                            signIn(
+                                                context,
+                                                _model
+                                                    .loginEmailAddressController
+                                                    .text,
+                                                _model.loginPasswordController
+                                                    .text);
                                           },
                                           text: 'Login',
                                           icon: Icon(
@@ -577,9 +631,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 20, 0, 0),
                                           child: FFButtonWidget(
-                                            onPressed: () {
-                                              print(
-                                                  'CreateProfileButton pressed ...');
+                                            onPressed: () async{
+                                              SignUpResult result = await signUpUser(
+                                                  _model
+                                                      .createAccountEmailAddressController
+                                                      .text,
+                                                  _model
+                                                      .createAccountPasswordController
+                                                      .text);
+                                                      if(result.isSignUpComplete){
+                                                        
+                                                      }
                                             },
                                             text: 'Create Profile',
                                             icon: Icon(

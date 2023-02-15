@@ -171,8 +171,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('SiteUserButton pressed ...');
+                            onPressed: () async {
+                              context.pushNamed('login_page');
                             },
                             text: 'Site User',
                             icon: Icon(
