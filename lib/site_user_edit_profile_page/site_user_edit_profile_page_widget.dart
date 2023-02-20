@@ -158,7 +158,7 @@ class _SiteUserEditProfilePageWidgetState
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0x00000000),
+                                                color: Color(0xFF4AA0EB),
                                                 width: 1,
                                               ),
                                               borderRadius:
@@ -221,7 +221,7 @@ class _SiteUserEditProfilePageWidgetState
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0x00000000),
+                                                color: Color(0xFF4AA0EB),
                                                 width: 1,
                                               ),
                                               borderRadius:
@@ -279,7 +279,7 @@ class _SiteUserEditProfilePageWidgetState
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0x00000000),
+                                                color: Color(0xFF4AA0EB),
                                                 width: 1,
                                               ),
                                               borderRadius:
@@ -337,7 +337,7 @@ class _SiteUserEditProfilePageWidgetState
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0x00000000),
+                                                color: Color(0xFF4AA0EB),
                                                 width: 1,
                                               ),
                                               borderRadius:
@@ -396,7 +396,7 @@ class _SiteUserEditProfilePageWidgetState
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0x00000000),
+                                                color: Color(0xFF4AA0EB),
                                                 width: 1,
                                               ),
                                               borderRadius:
@@ -454,7 +454,7 @@ class _SiteUserEditProfilePageWidgetState
                                                     .subtitle2
                                                     .override(
                                                       fontFamily: 'Lexend Deca',
-                                                      color: Colors.white,
+                                                      color: Color(0xFFF5EFE6),
                                                     ),
                                             borderSide: BorderSide(
                                               color: Colors.transparent,
