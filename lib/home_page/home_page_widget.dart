@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -46,7 +47,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Container(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height * 1,
+            height: MediaQuery.of(context).size.height * 1.2,
             decoration: BoxDecoration(
               color: Color(0xFFF5EFE6),
             ),
@@ -58,7 +59,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: MediaQuery.of(context).size.height * 0.5,
+                        height: MediaQuery.of(context).size.height * 0.6,
                         decoration: BoxDecoration(
                           color: Color(0xFFF5EFE6),
                         ),
@@ -71,12 +72,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0, 0),
+                        alignment: AlignmentDirectional(-0.14, 0.91),
                         child: Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(0, 350, 250, 0),
+                              EdgeInsetsDirectional.fromSTEB(0, 450, 250, 0),
                           child: Image.asset(
-                            'assets/images/Projects_Logo_-_100X100_Projects_Logo_100X100.png',
+                            'assets/images/Projects_Logo_-_100X100_Projects_Logo_100X100.jpg',
                             width: 100,
                             height: 100,
                             fit: BoxFit.cover,
@@ -120,87 +121,37 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       )),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
-                    child: Text(
-                      'I\'M',
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            color: Color(0xFF607EAA),
-                            fontSize: 24,
-                          ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional(0, 0.05),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed('vendor_login_page');
-                          },
-                          text: 'Vendor',
-                          icon: Icon(
-                            Icons.shopping_cart_outlined,
-                            size: 15,
-                          ),
-                          options: FFButtonOptions(
-                            width: 150,
-                            height: 40,
-                            color: Color(0xFF1C3879),
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                    ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          showLoadingIndicator: false,
+                  Align(
+                    alignment: AlignmentDirectional(0, 0.05),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed('vendor_login_page');
+                        },
+                        text: 'Explore',
+                        icon: FaIcon(
+                          FontAwesomeIcons.rocket,
                         ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0, 0.05),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                          child: FFButtonWidget(
-                            onPressed: () {
-                              print('SiteUserButton pressed ...');
-                            },
-                            text: 'Site User',
-                            icon: Icon(
-                              Icons.verified_user,
-                              size: 15,
-                            ),
-                            options: FFButtonOptions(
-                              width: 150,
-                              height: 40,
-                              color: Color(0xFF1C3879),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
+                        options: FFButtonOptions(
+                          width: 150,
+                          height: 40,
+                          color: Color(0xFF1C3879),
+                          textStyle:
+                              FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Colors.white,
                                     fontSize: 18,
                                   ),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1,
-                              ),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            showLoadingIndicator: false,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
                           ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
+                        showLoadingIndicator: false,
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
