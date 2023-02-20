@@ -136,7 +136,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
-                                                  color: Color(0x00000000),
+                                                  color: Color(0xFF4AA0EB),
                                                   width: 1,
                                                 ),
                                                 borderRadius:
@@ -201,7 +201,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
-                                                  color: Color(0x00000000),
+                                                  color: Color(0xFF4AA0EB),
                                                   width: 1,
                                                 ),
                                                 borderRadius:
