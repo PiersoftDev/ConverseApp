@@ -50,11 +50,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'email_verification_page',
               path: 'emailVerificationPage',
               builder: (context, params) => EmailVerificationPageWidget(),
-            ),
-            FFRoute(
-              name: 'vendor_login_page',
-              path: 'vendorLoginPage',
-              builder: (context, params) => VendorLoginPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

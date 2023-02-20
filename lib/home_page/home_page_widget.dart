@@ -127,7 +127,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('vendor_login_page');
+                          context.pushNamed('login_page');
                         },
                         text: 'Explore',
                         icon: FaIcon(

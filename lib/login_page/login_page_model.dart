@@ -1,3 +1,4 @@
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -18,6 +19,8 @@ class LoginPageModel extends FlutterFlowModel {
   TextEditingController? loginPasswordController;
   late bool loginPasswordVisibility;
   String? Function(BuildContext, String?)? loginPasswordControllerValidator;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
   // State field(s) for CreateAccountEmailAddress widget.
   TextEditingController? createAccountEmailAddressController;
   String? Function(BuildContext, String?)?

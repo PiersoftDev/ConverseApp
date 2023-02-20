@@ -1,3 +1,4 @@
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -344,6 +345,38 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   30, 30, 30, 5),
+                                          child: FlutterFlowDropDown<String>(
+                                            options: ['Vendor', 'Site User'],
+                                            onChanged: (val) => setState(() =>
+                                                _model.dropDownValue = val),
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.9,
+                                            height: 50,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color: Color(0xFF57636C),
+                                                    ),
+                                            hintText: 'I\'M',
+                                            fillColor: Color(0xFFF5EFE6),
+                                            elevation: 2,
+                                            borderColor: Color(0xFF4AA0EB),
+                                            borderWidth: 0,
+                                            borderRadius: 8,
+                                            margin:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20, 10, 10, 10),
+                                            hidesUnderline: true,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  30, 12, 30, 5),
                                           child: TextFormField(
                                             controller: _model
                                                 .createAccountEmailAddressController,
