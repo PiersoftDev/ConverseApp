@@ -58,7 +58,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: MediaQuery.of(context).size.height * 0.6,
+                        height: MediaQuery.of(context).size.height * 0.5,
                         decoration: BoxDecoration(
                           color: Color(0xFFF5EFE6),
                         ),
@@ -71,10 +71,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0, 0.05),
+                        alignment: AlignmentDirectional(0, 0),
                         child: Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(0, 400, 250, 0),
+                              EdgeInsetsDirectional.fromSTEB(0, 350, 250, 0),
                           child: Image.asset(
                             'assets/images/Projects_Logo_-_100X100_Projects_Logo_100X100.png',
                             width: 100,
@@ -171,8 +171,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                           child: FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed('login_page');
+                            onPressed: () {
+                              print('SiteUserButton pressed ...');
                             },
                             text: 'Site User',
                             icon: Icon(

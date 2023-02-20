@@ -1,3 +1,4 @@
+import '../components/otp_component_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -9,8 +10,8 @@ import 'package:provider/provider.dart';
 class VendorLoginPageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
-  final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
   // State field(s) for LoginEmailAddress widget.
   TextEditingController? loginEmailAddressController;
   String? Function(BuildContext, String?)? loginEmailAddressControllerValidator;
@@ -18,13 +19,6 @@ class VendorLoginPageModel extends FlutterFlowModel {
   TextEditingController? loginPasswordController;
   late bool loginPasswordVisibility;
   String? Function(BuildContext, String?)? loginPasswordControllerValidator;
-  // State field(s) for CreateAccountGST widget.
-  TextEditingController? createAccountGSTController;
-  String? Function(BuildContext, String?)? createAccountGSTControllerValidator;
-  // State field(s) for CreateAccountAadharNumber widget.
-  TextEditingController? createAccountAadharNumberController;
-  String? Function(BuildContext, String?)?
-      createAccountAadharNumberControllerValidator;
   // State field(s) for CreateAccountEmailAddress widget.
   TextEditingController? createAccountEmailAddressController;
   String? Function(BuildContext, String?)?
@@ -50,8 +44,6 @@ class VendorLoginPageModel extends FlutterFlowModel {
   void dispose() {
     loginEmailAddressController?.dispose();
     loginPasswordController?.dispose();
-    createAccountGSTController?.dispose();
-    createAccountAadharNumberController?.dispose();
     createAccountEmailAddressController?.dispose();
     createAccountPasswordController?.dispose();
     confirmPasswordController?.dispose();
