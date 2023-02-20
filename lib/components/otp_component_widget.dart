@@ -41,7 +41,7 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 270,
+      height: MediaQuery.of(context).size.height * 1,
       decoration: BoxDecoration(
         color: Color(0xFFF5EFE6),
         boxShadow: [
