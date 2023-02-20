@@ -1,5 +1,6 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,7 +43,7 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
       width: double.infinity,
       height: 270,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
+        color: Color(0xFFF5EFE6),
         boxShadow: [
           BoxShadow(
             blurRadius: 5,
@@ -96,15 +97,75 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
                   borderRadius: BorderRadius.circular(12),
                   shape: PinCodeFieldShape.box,
                   activeColor: Color(0xFF1C3879),
-                  inactiveColor: FlutterFlowTheme.of(context).primaryBackground,
-                  selectedColor: Color(0x5B57636C),
+                  inactiveColor: Color(0xFF1C3879),
+                  selectedColor: Color(0xFF1C3879),
                   activeFillColor: Color(0xFF1C3879),
-                  inactiveFillColor:
-                      FlutterFlowTheme.of(context).primaryBackground,
-                  selectedFillColor: Color(0x5B57636C),
+                  inactiveFillColor: Color(0xFF1C3879),
+                  selectedFillColor: Color(0xFF1C3879),
                 ),
-                controller: _model.pinCodeController,
+                controller: _model.otp,
                 onChanged: (_) => {},
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  FFButtonWidget(
+                    onPressed: () {
+                      print('OTPResetButton pressed ...');
+                    },
+                    text: 'Reset',
+                    icon: Icon(
+                      Icons.refresh,
+                      size: 15,
+                    ),
+                    options: FFButtonOptions(
+                      width: 130,
+                      height: 40,
+                      color: Color(0xFF1C3879),
+                      textStyle: FlutterFlowTheme.of(context)
+                          .subtitle2
+                          .override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                          ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  FFButtonWidget(
+                    onPressed: () {
+                      print('OTpConfirmButton pressed ...');
+                    },
+                    text: 'Verify',
+                    icon: Icon(
+                      Icons.verified_outlined,
+                      size: 15,
+                    ),
+                    options: FFButtonOptions(
+                      width: 130,
+                      height: 40,
+                      color: Color(0xFF1C3879),
+                      textStyle: FlutterFlowTheme.of(context)
+                          .subtitle2
+                          .override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                          ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
