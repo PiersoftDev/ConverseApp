@@ -1,3 +1,4 @@
+import '../components/otp_component_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -610,9 +611,31 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 20, 0, 0),
                                           child: FFButtonWidget(
-                                            onPressed: () {
-                                              print(
-                                                  'CreateProfileButton pressed ...');
+                                            onPressed: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return Padding(
+                                                    padding:
+                                                        MediaQuery.of(context)
+                                                            .viewInsets,
+                                                    child: Container(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.3,
+                                                      child:
+                                                          OtpComponentWidget(),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then(
+                                                  (value) => setState(() {}));
                                             },
                                             text: 'Create Profile',
                                             icon: Icon(

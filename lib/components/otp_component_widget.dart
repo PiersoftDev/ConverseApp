@@ -68,6 +68,7 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
                 'Enter OTP sent to phone number',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Poppins',
+                      color: Color(0xFF2351A3),
                       fontSize: 20,
                     ),
               ),
@@ -79,13 +80,13 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
                 length: 6,
                 textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                       fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.of(context).secondaryColor,
+                      color: Color(0xFF2351A3),
                     ),
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 enableActiveFill: false,
                 autoFocus: true,
                 showCursor: true,
-                cursorColor: FlutterFlowTheme.of(context).primaryColor,
+                cursorColor: Color(0xFF2351A3),
                 obscureText: false,
                 hintCharacter: '*',
                 pinTheme: PinTheme(
@@ -96,11 +97,11 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
                   shape: PinCodeFieldShape.box,
                   activeColor: Color(0xFF1C3879),
                   inactiveColor: FlutterFlowTheme.of(context).primaryBackground,
-                  selectedColor: FlutterFlowTheme.of(context).secondaryText,
+                  selectedColor: Color(0x5B57636C),
                   activeFillColor: Color(0xFF1C3879),
                   inactiveFillColor:
                       FlutterFlowTheme.of(context).primaryBackground,
-                  selectedFillColor: FlutterFlowTheme.of(context).secondaryText,
+                  selectedFillColor: Color(0x5B57636C),
                 ),
                 controller: _model.pinCodeController,
                 onChanged: (_) => {},
