@@ -47,9 +47,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => LoginPageWidget(),
             ),
             FFRoute(
-              name: 'email_verification_page',
-              path: 'emailVerificationPage',
-              builder: (context, params) => EmailVerificationPageWidget(),
+              name: 'site_user_edit_profile_page',
+              path: 'siteUserEditProfilePage',
+              builder: (context, params) => SiteUserEditProfilePageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

@@ -39,6 +39,8 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 1,
