@@ -628,7 +628,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           MediaQuery.of(context)
                                                                   .size
                                                                   .height *
-                                                              0.4,
+                                                              0.35,
                                                       child:
                                                           OtpComponentWidget(),
                                                     ),
