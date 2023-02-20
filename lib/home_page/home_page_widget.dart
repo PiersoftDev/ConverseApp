@@ -75,7 +75,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         alignment: AlignmentDirectional(-0.14, 0.91),
                         child: Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(0, 350, 250, 0),
+                              EdgeInsetsDirectional.fromSTEB(0, 450, 250, 0),
                           child: Image.asset(
                             'assets/images/Projects_Logo_-_100X100_Projects_Logo_100X100.png',
                             width: 100,
