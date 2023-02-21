@@ -55,6 +55,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'vendor_edit_profile_page',
               path: 'vendorEditProfilePage',
               builder: (context, params) => VendorEditProfilePageWidget(),
+            ),
+            FFRoute(
+              name: 'project_onboarding_page',
+              path: 'projectOnboardingPage',
+              builder: (context, params) => ProjectOnboardingPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

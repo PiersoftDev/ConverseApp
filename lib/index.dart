@@ -5,3 +5,5 @@ export 'site_user_edit_profile_page/site_user_edit_profile_page_widget.dart'
     show SiteUserEditProfilePageWidget;
 export 'vendor_edit_profile_page/vendor_edit_profile_page_widget.dart'
     show VendorEditProfilePageWidget;
+export 'project_onboarding_page/project_onboarding_page_widget.dart'
+    show ProjectOnboardingPageWidget;

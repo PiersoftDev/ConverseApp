@@ -13,19 +13,22 @@ class LoginPageModel extends FlutterFlowModel {
 
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
-  // State field(s) for LoginEmailAddress widget.
-  TextEditingController? loginEmailAddressController;
-  String? Function(BuildContext, String?)? loginEmailAddressControllerValidator;
+  // State field(s) for DropDown widget.
+  String? dropDownValue1;
+  // State field(s) for TextField widget.
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for LoginPassword widget.
   TextEditingController? loginPasswordController;
   late bool loginPasswordVisibility;
   String? Function(BuildContext, String?)? loginPasswordControllerValidator;
   // State field(s) for DropDown widget.
-  String? dropDownValue;
-  // State field(s) for CreateAccountEmailAddress widget.
-  TextEditingController? createAccountEmailAddressController;
-  String? Function(BuildContext, String?)?
-      createAccountEmailAddressControllerValidator;
+  String? dropDownValue2;
+  // State field(s) for DropDown widget.
+  String? dropDownValue3;
+  // State field(s) for TextField widget.
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
   // State field(s) for CreateAccountPassword widget.
   TextEditingController? createAccountPasswordController;
   late bool createAccountPasswordVisibility;
@@ -45,9 +48,9 @@ class LoginPageModel extends FlutterFlowModel {
   }
 
   void dispose() {
-    loginEmailAddressController?.dispose();
+    textController1?.dispose();
     loginPasswordController?.dispose();
-    createAccountEmailAddressController?.dispose();
+    textController3?.dispose();
     createAccountPasswordController?.dispose();
     confirmPasswordController?.dispose();
   }
