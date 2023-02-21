@@ -144,7 +144,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     initialOption: _model
                                                             .dropDownValue1 ??=
                                                         '+91',
-                                                    options: ['+91'],
+                                                    options: ['+91', '+1'],
                                                     onChanged: (val) =>
                                                         setState(() => _model
                                                                 .dropDownValue1 =
@@ -500,7 +500,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     initialOption: _model
                                                             .dropDownValue3 ??=
                                                         '+91',
-                                                    options: ['+91'],
+                                                    options: ['+91', '+1'],
                                                     onChanged: (val) =>
                                                         setState(() => _model
                                                                 .dropDownValue3 =
