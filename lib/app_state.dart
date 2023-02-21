@@ -47,30 +47,6 @@ class FFAppState extends ChangeNotifier {
   set whatsappNumber(String _value) {
     _whatsappNumber = _value;
   }
-
-  String _password = '';
-  String get password => _password;
-  set password(String _value) {
-    _password = _value;
-  }
-
-  String _confirmPassword = '';
-  String get confirmPassword => _confirmPassword;
-  set confirmPassword(String _value) {
-    _confirmPassword = _value;
-  }
-
-  String _signInPhoneNumber = '';
-  String get signInPhoneNumber => _signInPhoneNumber;
-  set signInPhoneNumber(String _value) {
-    _signInPhoneNumber = _value;
-  }
-
-  String _signInPassword = '';
-  String get signInPassword => _signInPassword;
-  set signInPassword(String _value) {
-    _signInPassword = _value;
-  }
 }
 
 LatLng? _latLngFromString(String? val) {

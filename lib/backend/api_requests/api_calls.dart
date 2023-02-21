@@ -41,6 +41,36 @@ class CreateUserCall {
   }
 }
 
+class ConfirmUserCall {
+  static Future<ApiCallResponse> call({
+    String? confirmationCode = '',
+    String? phoneNumber = '',
+    String? countryCode = '',
+  }) {
+    final body = '''
+{
+  "confirmationCode": "${confirmationCode}",
+  "phoneNumber": "${phoneNumber}",
+  "countryCode": "${countryCode}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'confirmUser',
+      apiUrl: 'https://6f9b47445fca.in.ngrok.io/converse/v1/auth/confirmSignup',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-type': 'application/json',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

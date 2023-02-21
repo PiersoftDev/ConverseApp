@@ -1,3 +1,4 @@
+import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -10,6 +11,8 @@ class OtpComponentModel extends FlutterFlowModel {
 
   // State field(s) for OTP widget.
   TextEditingController? otp;
+  // Stores action output result for [Backend Call - API (confirmUser)] action in OTP widget.
+  ApiCallResponse? apiResultxzs;
 
   /// Initialization and disposal methods.
 

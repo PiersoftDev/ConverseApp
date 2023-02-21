@@ -1,3 +1,4 @@
+import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -106,6 +107,23 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
                 ),
                 controller: _model.otp,
                 onChanged: (_) => {},
+                onCompleted: (_) async {
+                  var _shouldSetState = false;
+                  _model.apiResultxzs = await ConfirmUserCall.call(
+                    confirmationCode: _model.otp!.text,
+                    phoneNumber: FFAppState().whatsappNumber,
+                    countryCode: FFAppState().countryCode,
+                  );
+                  _shouldSetState = true;
+                  if ((_model.apiResultxzs?.succeeded ?? true)) {
+                    context.pushNamed('vendor_edit_profile_page');
+                  } else {
+                    if (_shouldSetState) setState(() {});
+                    return;
+                  }
+
+                  if (_shouldSetState) setState(() {});
+                },
               ),
             ),
           ],

@@ -374,16 +374,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           ),
                                         ),
                                         FFButtonWidget(
-                                          onPressed: () async {
-                                            setState(() {
-                                              FFAppState().signInPhoneNumber =
-                                                  _model
-                                                      .whatsappPhoneNumberTextFieldController
-                                                      .text;
-                                              FFAppState().signInPassword =
-                                                  _model.loginPasswordController
-                                                      .text;
-                                            });
+                                          onPressed: () {
+                                            print('LoginButton pressed ...');
                                           },
                                           text: 'Login',
                                           icon: Icon(
@@ -842,6 +834,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       .validate()) {
                                                 return;
                                               }
+                                              setState(() {
+                                                FFAppState().persona = _model
+                                                    .sIgnUpPersonaDropDownValue!;
+                                                FFAppState().countryCode = _model
+                                                    .singUpCountryCodeDropDownValue!;
+                                                FFAppState().whatsappNumber = _model
+                                                    .sIgnUpWhatsappTextFieldController
+                                                    .text;
+                                              });
                                               _model.apiResult1q7 =
                                                   await CreateUserCall.call(
                                                 persona: _model
