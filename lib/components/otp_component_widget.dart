@@ -1,4 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -136,9 +137,23 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
                   ).toString(),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Poppins',
-                        color: Color(0xFF131010),
+                        color: Color(0xFFBE1515),
                       ),
                 ),
+              ),
+            if (!(_model.apiResultxzs?.succeeded ?? true))
+              FlutterFlowIconButton(
+                borderRadius: 30,
+                borderWidth: 1,
+                buttonSize: 60,
+                icon: Icon(
+                  Icons.replay,
+                  color: Color(0xFF2351A3),
+                  size: 30,
+                ),
+                onPressed: () async {
+                  setState(() {});
+                },
               ),
           ],
         ),
