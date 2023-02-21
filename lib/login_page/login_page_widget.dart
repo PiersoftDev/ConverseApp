@@ -30,7 +30,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
     _model.whatsappPhoneNumberTextFieldController ??= TextEditingController();
     _model.loginPasswordController ??= TextEditingController();
-    _model.whatsappTextFieldController ??= TextEditingController();
+    _model.sIgnUpWhatsappTextFieldController ??= TextEditingController();
     _model.createAccountPasswordController ??= TextEditingController();
     _model.confirmPasswordController ??= TextEditingController();
   }
@@ -142,12 +142,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   child: FlutterFlowDropDown<
                                                       String>(
                                                     initialOption: _model
-                                                            .countryCodeDropDownValue1 ??=
+                                                            .countryCodeDropDownValue ??=
                                                         '+91',
                                                     options: ['+91', '+1'],
                                                     onChanged: (val) =>
                                                         setState(() => _model
-                                                                .countryCodeDropDownValue1 =
+                                                                .countryCodeDropDownValue =
                                                             val),
                                                     width: 80,
                                                     height: 50,
@@ -373,8 +373,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           ),
                                         ),
                                         FFButtonWidget(
-                                          onPressed: () {
-                                            print('LoginButton pressed ...');
+                                          onPressed: () async {
+                                            setState(() {
+                                              FFAppState().signInPhoneNumber =
+                                                  _model
+                                                      .whatsappPhoneNumberTextFieldController
+                                                      .text;
+                                              FFAppState().signInPassword =
+                                                  _model.loginPasswordController
+                                                      .text;
+                                            });
                                           },
                                           text: 'Login',
                                           icon: Icon(
@@ -458,8 +466,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   30, 30, 30, 5),
                                           child: FlutterFlowDropDown<String>(
                                             options: ['Vendor', 'Site User'],
+                                            optionLabels: [
+                                              'Vendor',
+                                              'Site User'
+                                            ],
                                             onChanged: (val) => setState(() =>
-                                                _model.dropDownValue = val),
+                                                _model.sIgnUpPersonaDropDownValue =
+                                                    val),
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -510,12 +523,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   child: FlutterFlowDropDown<
                                                       String>(
                                                     initialOption: _model
-                                                            .countryCodeDropDownValue2 ??=
+                                                            .singUpCountryCodeDropDownValue ??=
                                                         '+91',
                                                     options: ['+91', '+1'],
                                                     onChanged: (val) =>
                                                         setState(() => _model
-                                                                .countryCodeDropDownValue2 =
+                                                                .singUpCountryCodeDropDownValue =
                                                             val),
                                                     width: 80,
                                                     height: 50,
@@ -545,7 +558,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 Expanded(
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .whatsappTextFieldController,
+                                                        .sIgnUpWhatsappTextFieldController,
                                                     autofocus: true,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -635,8 +648,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText1,
+                                                    keyboardType:
+                                                        TextInputType.phone,
                                                     validator: _model
-                                                        .whatsappTextFieldControllerValidator
+                                                        .sIgnUpWhatsappTextFieldControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -818,6 +833,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   0, 20, 0, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              if (_model.formKey1
+                                                          .currentState ==
+                                                      null ||
+                                                  !_model.formKey1.currentState!
+                                                      .validate()) {
+                                                return;
+                                              }
                                               await showModalBottomSheet(
                                                 isScrollControlled: true,
                                                 backgroundColor:
@@ -842,6 +864,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 },
                                               ).then(
                                                   (value) => setState(() {}));
+
+                                              setState(() {
+                                                FFAppState().persona = _model
+                                                    .sIgnUpPersonaDropDownValue!;
+                                                FFAppState().countryCode = _model
+                                                    .countryCodeDropDownValue!;
+                                                FFAppState().whatsappNumber = _model
+                                                    .whatsappPhoneNumberTextFieldController
+                                                    .text;
+                                                FFAppState().password = _model
+                                                    .createAccountPasswordController
+                                                    .text;
+                                                FFAppState().confirmPassword =
+                                                    _model
+                                                        .confirmPasswordController
+                                                        .text;
+                                              });
                                             },
                                             text: 'Create Profile',
                                             icon: Icon(

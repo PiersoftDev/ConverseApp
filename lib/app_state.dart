@@ -29,6 +29,48 @@ class FFAppState extends ChangeNotifier {
   set profilePicUrl(String _value) {
     _profilePicUrl = _value;
   }
+
+  String _persona = '';
+  String get persona => _persona;
+  set persona(String _value) {
+    _persona = _value;
+  }
+
+  String _countryCode = '';
+  String get countryCode => _countryCode;
+  set countryCode(String _value) {
+    _countryCode = _value;
+  }
+
+  String _whatsappNumber = '';
+  String get whatsappNumber => _whatsappNumber;
+  set whatsappNumber(String _value) {
+    _whatsappNumber = _value;
+  }
+
+  String _password = '';
+  String get password => _password;
+  set password(String _value) {
+    _password = _value;
+  }
+
+  String _confirmPassword = '';
+  String get confirmPassword => _confirmPassword;
+  set confirmPassword(String _value) {
+    _confirmPassword = _value;
+  }
+
+  String _signInPhoneNumber = '';
+  String get signInPhoneNumber => _signInPhoneNumber;
+  set signInPhoneNumber(String _value) {
+    _signInPhoneNumber = _value;
+  }
+
+  String _signInPassword = '';
+  String get signInPassword => _signInPassword;
+  set signInPassword(String _value) {
+    _signInPassword = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -14,7 +14,7 @@ class LoginPageModel extends FlutterFlowModel {
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
   // State field(s) for CountryCodeDropDown widget.
-  String? countryCodeDropDownValue1;
+  String? countryCodeDropDownValue;
   // State field(s) for WhatsappPhoneNumberTextField widget.
   TextEditingController? whatsappPhoneNumberTextFieldController;
   String? Function(BuildContext, String?)?
@@ -23,13 +23,14 @@ class LoginPageModel extends FlutterFlowModel {
   TextEditingController? loginPasswordController;
   late bool loginPasswordVisibility;
   String? Function(BuildContext, String?)? loginPasswordControllerValidator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  // State field(s) for CountryCodeDropDown widget.
-  String? countryCodeDropDownValue2;
-  // State field(s) for WhatsappTextField widget.
-  TextEditingController? whatsappTextFieldController;
-  String? Function(BuildContext, String?)? whatsappTextFieldControllerValidator;
+  // State field(s) for SIgnUpPersonaDropDown widget.
+  String? sIgnUpPersonaDropDownValue;
+  // State field(s) for SingUpCountryCodeDropDown widget.
+  String? singUpCountryCodeDropDownValue;
+  // State field(s) for SIgnUpWhatsappTextField widget.
+  TextEditingController? sIgnUpWhatsappTextFieldController;
+  String? Function(BuildContext, String?)?
+      sIgnUpWhatsappTextFieldControllerValidator;
   // State field(s) for CreateAccountPassword widget.
   TextEditingController? createAccountPasswordController;
   late bool createAccountPasswordVisibility;
@@ -51,7 +52,7 @@ class LoginPageModel extends FlutterFlowModel {
   void dispose() {
     whatsappPhoneNumberTextFieldController?.dispose();
     loginPasswordController?.dispose();
-    whatsappTextFieldController?.dispose();
+    sIgnUpWhatsappTextFieldController?.dispose();
     createAccountPasswordController?.dispose();
     confirmPasswordController?.dispose();
   }
