@@ -1,4 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
+import '../components/api_error_component_widget.dart';
 import '../components/otp_component_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -826,7 +827,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   0, 20, 0, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              var _shouldSetState = false;
                                               if (_model.formKey1
                                                           .currentState ==
                                                       null ||
@@ -856,7 +856,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     .createAccountPasswordController
                                                     .text,
                                               );
-                                              _shouldSetState = true;
                                               if ((_model.apiResult1q7
                                                       ?.succeeded ??
                                                   true)) {
@@ -885,13 +884,42 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 ).then(
                                                     (value) => setState(() {}));
                                               } else {
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
+                                                setState(() {
+                                                  FFAppState().apiError =
+                                                      getJsonField(
+                                                    (_model.apiResult1q7
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                    r'''$.errorResponse''',
+                                                  ).toString();
+                                                });
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return Padding(
+                                                      padding:
+                                                          MediaQuery.of(context)
+                                                              .viewInsets,
+                                                      child: Container(
+                                                        height: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.4,
+                                                        child:
+                                                            ApiErrorComponentWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then(
+                                                    (value) => setState(() {}));
                                               }
 
-                                              if (_shouldSetState)
-                                                setState(() {});
+                                              setState(() {});
                                             },
                                             text: 'Create Profile',
                                             icon: Icon(

@@ -47,6 +47,12 @@ class FFAppState extends ChangeNotifier {
   set whatsappNumber(String _value) {
     _whatsappNumber = _value;
   }
+
+  String _apiError = '';
+  String get apiError => _apiError;
+  set apiError(String _value) {
+    _apiError = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
