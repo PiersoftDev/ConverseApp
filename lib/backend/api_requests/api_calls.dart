@@ -11,15 +11,27 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class CreateUserCall {
   static Future<ApiCallResponse> call({
-    String? phoneNo = '9945014010',
+    String? persona = '',
+    String? countryCode = '',
+    String? whatsappNumber = '',
+    String? password = '',
   }) {
+    final body = '''
+{
+  "persona": "${persona}",
+  "countryCode": "${countryCode}",
+  "whatsappNumber": "${whatsappNumber}",
+  "password": "${password}"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'createUser',
-      apiUrl:
-          'https://6f9b47445fca.in.ngrok.io/converse/v1/auth/signup/9945014010',
+      apiUrl: 'https://6f9b47445fca.in.ngrok.io/converse/v1/auth/signup',
       callType: ApiCallType.POST,
-      headers: {},
+      headers: {
+        'Content-Type': 'application/json',
+      },
       params: {},
+      body: body,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,

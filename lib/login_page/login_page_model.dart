@@ -1,3 +1,4 @@
+import '../backend/api_requests/api_calls.dart';
 import '../components/otp_component_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -40,6 +41,8 @@ class LoginPageModel extends FlutterFlowModel {
   TextEditingController? confirmPasswordController;
   late bool confirmPasswordVisibility;
   String? Function(BuildContext, String?)? confirmPasswordControllerValidator;
+  // Stores action output result for [Backend Call - API (createUser)] action in CreateProfileButton widget.
+  ApiCallResponse? apiResult1q7;
 
   /// Initialization and disposal methods.
 

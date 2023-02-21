@@ -1,3 +1,4 @@
+import '../backend/api_requests/api_calls.dart';
 import '../components/otp_component_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -833,6 +834,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   0, 20, 0, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              var _shouldSetState = false;
                                               if (_model.formKey1
                                                           .currentState ==
                                                       null ||
@@ -840,47 +842,55 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       .validate()) {
                                                 return;
                                               }
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return Padding(
-                                                    padding:
-                                                        MediaQuery.of(context)
-                                                            .viewInsets,
-                                                    child: Container(
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
-                                                              0.35,
-                                                      child:
-                                                          OtpComponentWidget(),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then(
-                                                  (value) => setState(() {}));
-
-                                              setState(() {
-                                                FFAppState().persona = _model
-                                                    .sIgnUpPersonaDropDownValue!;
-                                                FFAppState().countryCode = _model
-                                                    .countryCodeDropDownValue!;
-                                                FFAppState().whatsappNumber = _model
-                                                    .whatsappPhoneNumberTextFieldController
-                                                    .text;
-                                                FFAppState().password = _model
+                                              _model.apiResult1q7 =
+                                                  await CreateUserCall.call(
+                                                persona: _model
+                                                    .sIgnUpPersonaDropDownValue,
+                                                countryCode: _model
+                                                    .singUpCountryCodeDropDownValue,
+                                                whatsappNumber: _model
+                                                    .sIgnUpWhatsappTextFieldController
+                                                    .text,
+                                                password: _model
                                                     .createAccountPasswordController
-                                                    .text;
-                                                FFAppState().confirmPassword =
-                                                    _model
-                                                        .confirmPasswordController
-                                                        .text;
-                                              });
+                                                    .text,
+                                              );
+                                              _shouldSetState = true;
+                                              if ((_model.apiResult1q7
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return Padding(
+                                                      padding:
+                                                          MediaQuery.of(context)
+                                                              .viewInsets,
+                                                      child: Container(
+                                                        height: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.4,
+                                                        child:
+                                                            OtpComponentWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then(
+                                                    (value) => setState(() {}));
+                                              } else {
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+
+                                              if (_shouldSetState)
+                                                setState(() {});
                                             },
                                             text: 'Create Profile',
                                             icon: Icon(
