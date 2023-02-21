@@ -126,6 +126,20 @@ class _OtpComponentWidgetState extends State<OtpComponentWidget> {
                 },
               ),
             ),
+            if (!(_model.apiResultxzs?.succeeded ?? true))
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                child: Text(
+                  getJsonField(
+                    (_model.apiResultxzs?.jsonBody ?? ''),
+                    r'''$.errorResponse''',
+                  ).toString(),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Poppins',
+                        color: Color(0xFF131010),
+                      ),
+                ),
+              ),
           ],
         ),
       ),
