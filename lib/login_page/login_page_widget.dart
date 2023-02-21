@@ -28,9 +28,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     super.initState();
     _model = createModel(context, () => LoginPageModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.whatsappPhoneNumberTextFieldController ??= TextEditingController();
     _model.loginPasswordController ??= TextEditingController();
-    _model.textController3 ??= TextEditingController();
+    _model.whatsappTextFieldController ??= TextEditingController();
     _model.createAccountPasswordController ??= TextEditingController();
     _model.confirmPasswordController ??= TextEditingController();
   }
@@ -142,12 +142,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   child: FlutterFlowDropDown<
                                                       String>(
                                                     initialOption: _model
-                                                            .dropDownValue1 ??=
+                                                            .countryCodeDropDownValue1 ??=
                                                         '+91',
                                                     options: ['+91', '+1'],
                                                     onChanged: (val) =>
                                                         setState(() => _model
-                                                                .dropDownValue1 =
+                                                                .countryCodeDropDownValue1 =
                                                             val),
                                                     width: 80,
                                                     height: 50,
@@ -175,101 +175,113 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   ),
                                                 ),
                                                 Expanded(
-                                                  child: TextFormField(
-                                                    controller:
-                                                        _model.textController1,
-                                                    autofocus: true,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      hintText:
-                                                          'Enter Whatsapp phone number',
-                                                      hintStyle:
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 5, 0),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .whatsappPhoneNumberTextFieldController,
+                                                      autofocus: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        hintText:
+                                                            'Enter Whatsapp phone number',
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText2,
+                                                        enabledBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        focusedBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        errorBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10, 0,
+                                                                    0, 0),
+                                                      ),
+                                                      style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2,
-                                                      enabledBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1,
-                                                        ),
-                                                        borderRadius:
-                                                            const BorderRadius
-                                                                .only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  4.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  4.0),
-                                                        ),
-                                                      ),
-                                                      focusedBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1,
-                                                        ),
-                                                        borderRadius:
-                                                            const BorderRadius
-                                                                .only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  4.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  4.0),
-                                                        ),
-                                                      ),
-                                                      errorBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1,
-                                                        ),
-                                                        borderRadius:
-                                                            const BorderRadius
-                                                                .only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  4.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  4.0),
-                                                        ),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1,
-                                                        ),
-                                                        borderRadius:
-                                                            const BorderRadius
-                                                                .only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  4.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  4.0),
-                                                        ),
-                                                      ),
-                                                      contentPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10, 0, 0, 0),
+                                                              .bodyText1,
+                                                      validator: _model
+                                                          .whatsappPhoneNumberTextFieldControllerValidator
+                                                          .asValidator(context),
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1,
-                                                    validator: _model
-                                                        .textController1Validator
-                                                        .asValidator(context),
                                                   ),
                                                 ),
                                               ],
@@ -447,7 +459,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           child: FlutterFlowDropDown<String>(
                                             options: ['Vendor', 'Site User'],
                                             onChanged: (val) => setState(() =>
-                                                _model.dropDownValue2 = val),
+                                                _model.dropDownValue = val),
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -498,12 +510,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   child: FlutterFlowDropDown<
                                                       String>(
                                                     initialOption: _model
-                                                            .dropDownValue3 ??=
+                                                            .countryCodeDropDownValue2 ??=
                                                         '+91',
                                                     options: ['+91', '+1'],
                                                     onChanged: (val) =>
                                                         setState(() => _model
-                                                                .dropDownValue3 =
+                                                                .countryCodeDropDownValue2 =
                                                             val),
                                                     width: 80,
                                                     height: 50,
@@ -532,8 +544,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 ),
                                                 Expanded(
                                                   child: TextFormField(
-                                                    controller:
-                                                        _model.textController3,
+                                                    controller: _model
+                                                        .whatsappTextFieldController,
                                                     autofocus: true,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -624,7 +636,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             context)
                                                         .bodyText1,
                                                     validator: _model
-                                                        .textController3Validator
+                                                        .whatsappTextFieldControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),

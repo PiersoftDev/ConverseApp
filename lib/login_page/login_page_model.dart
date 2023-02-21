@@ -13,22 +13,23 @@ class LoginPageModel extends FlutterFlowModel {
 
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
-  // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  // State field(s) for TextField widget.
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  // State field(s) for CountryCodeDropDown widget.
+  String? countryCodeDropDownValue1;
+  // State field(s) for WhatsappPhoneNumberTextField widget.
+  TextEditingController? whatsappPhoneNumberTextFieldController;
+  String? Function(BuildContext, String?)?
+      whatsappPhoneNumberTextFieldControllerValidator;
   // State field(s) for LoginPassword widget.
   TextEditingController? loginPasswordController;
   late bool loginPasswordVisibility;
   String? Function(BuildContext, String?)? loginPasswordControllerValidator;
   // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  // State field(s) for DropDown widget.
-  String? dropDownValue3;
-  // State field(s) for TextField widget.
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
+  String? dropDownValue;
+  // State field(s) for CountryCodeDropDown widget.
+  String? countryCodeDropDownValue2;
+  // State field(s) for WhatsappTextField widget.
+  TextEditingController? whatsappTextFieldController;
+  String? Function(BuildContext, String?)? whatsappTextFieldControllerValidator;
   // State field(s) for CreateAccountPassword widget.
   TextEditingController? createAccountPasswordController;
   late bool createAccountPasswordVisibility;
@@ -48,9 +49,9 @@ class LoginPageModel extends FlutterFlowModel {
   }
 
   void dispose() {
-    textController1?.dispose();
+    whatsappPhoneNumberTextFieldController?.dispose();
     loginPasswordController?.dispose();
-    textController3?.dispose();
+    whatsappTextFieldController?.dispose();
     createAccountPasswordController?.dispose();
     confirmPasswordController?.dispose();
   }
