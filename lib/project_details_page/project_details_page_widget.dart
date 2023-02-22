@@ -116,38 +116,43 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget> {
                                         ],
                                         borderRadius: BorderRadius.circular(8),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.database,
-                                              color: Color(0xFF0D4C92),
-                                              size: 20,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 20,
+                                              borderWidth: 1,
+                                              buttonSize: 40,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.database,
+                                                color: Color(0xFF0D4C92),
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                print(
+                                                    'MenuIconButton pressed ...');
+                                              },
                                             ),
-                                            onPressed: () {
-                                              print(
-                                                  'MenuIconButton pressed ...');
-                                            },
-                                          ),
-                                          Text(
-                                            'MDM',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF0D4C92),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
+                                            Text(
+                                              'MDM',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF0D4C92),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -170,38 +175,43 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget> {
                                         ],
                                         borderRadius: BorderRadius.circular(8),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.handshake,
-                                              color: Color(0xFF0D4C92),
-                                              size: 20,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 20,
+                                              borderWidth: 1,
+                                              buttonSize: 40,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.handshake,
+                                                color: Color(0xFF0D4C92),
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                print(
+                                                    'MenuIconButton pressed ...');
+                                              },
                                             ),
-                                            onPressed: () {
-                                              print(
-                                                  'MenuIconButton pressed ...');
-                                            },
-                                          ),
-                                          Text(
-                                            'Vendor',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF0D4C92),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
+                                            Text(
+                                              'Vendor',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF0D4C92),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -224,38 +234,43 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget> {
                                         ],
                                         borderRadius: BorderRadius.circular(8),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
-                                            icon: Icon(
-                                              Icons.storefront,
-                                              color: Color(0xFF0D4C92),
-                                              size: 20,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 20,
+                                              borderWidth: 1,
+                                              buttonSize: 40,
+                                              icon: Icon(
+                                                Icons.storefront,
+                                                color: Color(0xFF0D4C92),
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                print(
+                                                    'MenuIconButton pressed ...');
+                                              },
                                             ),
-                                            onPressed: () {
-                                              print(
-                                                  'MenuIconButton pressed ...');
-                                            },
-                                          ),
-                                          Text(
-                                            'Store',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF0D4C92),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
+                                            Text(
+                                              'Store',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF0D4C92),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -278,38 +293,43 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget> {
                                         ],
                                         borderRadius: BorderRadius.circular(8),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.questionCircle,
-                                              color: Color(0xFF0D4C92),
-                                              size: 20,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 20,
+                                              borderWidth: 1,
+                                              buttonSize: 40,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.questionCircle,
+                                                color: Color(0xFF0D4C92),
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                print(
+                                                    'MenuIconButton pressed ...');
+                                              },
                                             ),
-                                            onPressed: () {
-                                              print(
-                                                  'MenuIconButton pressed ...');
-                                            },
-                                          ),
-                                          Text(
-                                            'RFQ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF0D4C92),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
+                                            Text(
+                                              'RFQ',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF0D4C92),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -332,38 +352,43 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget> {
                                         ],
                                         borderRadius: BorderRadius.circular(8),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
-                                            icon: Icon(
-                                              Icons.receipt_long,
-                                              color: Color(0xFF0D4C92),
-                                              size: 20,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 20,
+                                              borderWidth: 1,
+                                              buttonSize: 40,
+                                              icon: Icon(
+                                                Icons.receipt_long,
+                                                color: Color(0xFF0D4C92),
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                print(
+                                                    'MenuIconButton pressed ...');
+                                              },
                                             ),
-                                            onPressed: () {
-                                              print(
-                                                  'MenuIconButton pressed ...');
-                                            },
-                                          ),
-                                          Text(
-                                            'Reports',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF0D4C92),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
+                                            Text(
+                                              'Reports',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF0D4C92),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -386,38 +411,43 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget> {
                                         ],
                                         borderRadius: BorderRadius.circular(8),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.fileContract,
-                                              color: Color(0xFF0D4C92),
-                                              size: 20,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 20,
+                                              borderWidth: 1,
+                                              buttonSize: 40,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.fileContract,
+                                                color: Color(0xFF0D4C92),
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                print(
+                                                    'MenuIconButton pressed ...');
+                                              },
                                             ),
-                                            onPressed: () {
-                                              print(
-                                                  'MenuIconButton pressed ...');
-                                            },
-                                          ),
-                                          Text(
-                                            'Sub Con',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF0D4C92),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
+                                            Text(
+                                              'Sub Con',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF0D4C92),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -445,43 +475,44 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget> {
                                           },
                                         ).then((value) => setState(() {}));
                                       },
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Lottie.asset(
-                                                'assets/lottie_animations/9261-scroll-down.json',
-                                                width: 50,
-                                                height: 50,
-                                                fit: BoxFit.cover,
-                                                animate: true,
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 10, 0),
-                                            child: Text(
-                                              'More',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFF1C3879),
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Lottie.asset(
+                                                  'assets/lottie_animations/9261-scroll-down.json',
+                                                  width: 50,
+                                                  height: 50,
+                                                  fit: BoxFit.cover,
+                                                  animate: true,
+                                                ),
+                                              ],
                                             ),
-                                          ),
-                                        ],
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 10, 0),
+                                              child: Text(
+                                                'More',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF1C3879),
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
