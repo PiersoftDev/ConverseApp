@@ -25,6 +25,8 @@ class LoginPageModel extends FlutterFlowModel {
   TextEditingController? loginPasswordController;
   late bool loginPasswordVisibility;
   String? Function(BuildContext, String?)? loginPasswordControllerValidator;
+  // Stores action output result for [Backend Call - API (signInUser)] action in LoginButton widget.
+  ApiCallResponse? userSignInResult;
   // State field(s) for SIgnUpPersonaDropDown widget.
   String? sIgnUpPersonaDropDownValue;
   // State field(s) for SingUpCountryCodeDropDown widget.

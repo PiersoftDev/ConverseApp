@@ -375,8 +375,41 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           ),
                                         ),
                                         FFButtonWidget(
-                                          onPressed: () {
-                                            print('LoginButton pressed ...');
+                                          onPressed: () async {
+                                            _model.userSignInResult =
+                                                await SignInUserCall.call(
+                                              countryCode: _model
+                                                  .countryCodeDropDownValue,
+                                              phoneNumber: _model
+                                                  .whatsappPhoneNumberTextFieldController
+                                                  .text,
+                                              password: _model
+                                                  .loginPasswordController.text,
+                                            );
+                                            if ((_model.userSignInResult
+                                                    ?.succeeded ??
+                                                true)) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Successfully logged in',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 3000),
+                                                  backgroundColor:
+                                                      Color(0x00000000),
+                                                ),
+                                              );
+                                            }
+
+                                            setState(() {});
                                           },
                                           text: 'Login',
                                           icon: Icon(
