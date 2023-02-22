@@ -25,7 +25,7 @@ class CreateUserCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createUser',
-      apiUrl: 'https://6f9b47445fca.in.ngrok.io/converse/v1/auth/signup',
+      apiUrl: 'https://8eaaf68f38ca.in.ngrok.io/converse/v1/auth/signup',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ class ConfirmUserCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'confirmUser',
-      apiUrl: 'https://6f9b47445fca.in.ngrok.io/converse/v1/auth/confirmSignup',
+      apiUrl: 'https://8eaaf68f38ca.in.ngrok.io/converse/v1/auth/confirmSignup',
       callType: ApiCallType.POST,
       headers: {
         'Content-type': 'application/json',
