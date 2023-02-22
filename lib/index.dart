@@ -8,3 +8,5 @@ export 'vendor_edit_profile_page/vendor_edit_profile_page_widget.dart'
 export 'project_onboarding_page/project_onboarding_page_widget.dart'
     show ProjectOnboardingPageWidget;
 export 'projects_page/projects_page_widget.dart' show ProjectsPageWidget;
+export 'project_details_page/project_details_page_widget.dart'
+    show ProjectDetailsPageWidget;
