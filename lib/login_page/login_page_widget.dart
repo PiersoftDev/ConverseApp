@@ -407,6 +407,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       Color(0x00000000),
                                                 ),
                                               );
+
+                                              context
+                                                  .pushNamed('projects_page');
                                             }
 
                                             setState(() {});

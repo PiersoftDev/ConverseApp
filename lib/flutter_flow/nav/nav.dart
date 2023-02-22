@@ -60,6 +60,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'project_onboarding_page',
               path: 'projectOnboardingPage',
               builder: (context, params) => ProjectOnboardingPageWidget(),
+            ),
+            FFRoute(
+              name: 'projects_page',
+              path: 'projectsPage',
+              builder: (context, params) => ProjectsPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
