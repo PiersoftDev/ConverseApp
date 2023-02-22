@@ -1,6 +1,7 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/upload_media.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -447,9 +448,60 @@ class _ProjectOnboardingPageWidgetState
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 30, 0, 0),
                                     child: FFButtonWidget(
-                                      onPressed: () {
-                                        print(
-                                            'UploadProjectImagesButton pressed ...');
+                                      onPressed: () async {
+                                        final selectedMedia = await selectMedia(
+                                          imageQuality: 50,
+                                          mediaSource: MediaSource.photoGallery,
+                                          multiImage: true,
+                                        );
+                                        if (selectedMedia != null &&
+                                            selectedMedia.every((m) =>
+                                                validateFileFormat(
+                                                    m.storagePath, context))) {
+                                          setState(() =>
+                                              _model.isMediaUploading = true);
+                                          var selectedUploadedFiles =
+                                              <FFUploadedFile>[];
+
+                                          try {
+                                            showUploadMessage(
+                                              context,
+                                              'Uploading file...',
+                                              showLoading: true,
+                                            );
+                                            selectedUploadedFiles =
+                                                selectedMedia
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath
+                                                              .split('/')
+                                                              .last,
+                                                          bytes: m.bytes,
+                                                          height: m.dimensions
+                                                              ?.height,
+                                                          width: m.dimensions
+                                                              ?.width,
+                                                        ))
+                                                    .toList();
+                                          } finally {
+                                            ScaffoldMessenger.of(context)
+                                                .hideCurrentSnackBar();
+                                            _model.isMediaUploading = false;
+                                          }
+                                          if (selectedUploadedFiles.length ==
+                                              selectedMedia.length) {
+                                            setState(() {
+                                              _model.uploadedLocalFiles =
+                                                  selectedUploadedFiles;
+                                            });
+                                            showUploadMessage(
+                                                context, 'Success!');
+                                          } else {
+                                            setState(() {});
+                                            showUploadMessage(context,
+                                                'Failed to upload media');
+                                            return;
+                                          }
+                                        }
                                       },
                                       text: 'Upload Site Images',
                                       icon: Icon(

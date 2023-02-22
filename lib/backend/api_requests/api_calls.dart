@@ -101,6 +101,42 @@ class SignInUserCall {
   }
 }
 
+class OnboardProjectCall {
+  static Future<ApiCallResponse> call({
+    String? projectTitle = '',
+    String? regionalOffice = '',
+    String? addressLine1 = '',
+    String? addressLine2 = '',
+    String? state = '',
+    String? contactNumber = '',
+  }) {
+    final body = '''
+{
+  "projectTitle": "ESI",
+  "regionalOffice": "Hyderabad",
+  "addressLine1": "ESI",
+  "addressLine2": "SR Nagar",
+  "state": "Telangana",
+  "contactNumber": "+919945014010"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'onboardProject',
+      apiUrl: 'https://8eaaf68f38ca.in.ngrok.io/converse/v1/project/onboard',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
