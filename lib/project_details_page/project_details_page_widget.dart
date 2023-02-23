@@ -557,20 +557,20 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget> {
                                         PageController(initialPage: 0),
                                     scrollDirection: Axis.horizontal,
                                     children: [
-                                      Image.asset(
-                                        'assets/images/WhatsApp_Image_2022-12-13_at_11.41.08_AM.jpeg',
+                                      Image.network(
+                                        FFAppState().imgUrl1,
                                         width: 100,
                                         height: 100,
                                         fit: BoxFit.cover,
                                       ),
-                                      Image.asset(
-                                        'assets/images/WhatsApp_Image_2022-12-13_at_11.41.10_AM.jpeg',
+                                      Image.network(
+                                        FFAppState().imgUrl2,
                                         width: 100,
                                         height: 100,
                                         fit: BoxFit.cover,
                                       ),
-                                      Image.asset(
-                                        'assets/images/WhatsApp_Image_2022-12-13_at_11.41.10_AM_(1).jpeg',
+                                      Image.network(
+                                        FFAppState().imgUrl3,
                                         width: 100,
                                         height: 100,
                                         fit: BoxFit.cover,
