@@ -10,3 +10,6 @@ export 'project_onboarding_page/project_onboarding_page_widget.dart'
 export 'projects_page/projects_page_widget.dart' show ProjectsPageWidget;
 export 'project_details_page/project_details_page_widget.dart'
     show ProjectDetailsPageWidget;
+export 'gatepass_activity_page/gatepass_activity_page_widget.dart'
+    show GatepassActivityPageWidget;
+export 'gatepass_page/gatepass_page_widget.dart' show GatepassPageWidget;
