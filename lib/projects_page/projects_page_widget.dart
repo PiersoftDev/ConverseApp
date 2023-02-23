@@ -413,7 +413,6 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       primary: false,
-                                      shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
                                       itemCount: getProjects.length,
                                       itemBuilder: (context, getProjectsIndex) {
@@ -423,7 +422,7 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceAround,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
