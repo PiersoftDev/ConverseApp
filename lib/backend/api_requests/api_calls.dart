@@ -25,7 +25,8 @@ class CreateUserCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createUser',
-      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/auth/signup',
+      apiUrl:
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/auth/signup',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +56,8 @@ class ConfirmUserCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'confirmUser',
-      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/auth/confirmSignup',
+      apiUrl:
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/auth/confirmSignup',
       callType: ApiCallType.POST,
       headers: {
         'Content-type': 'application/json',
@@ -85,7 +87,8 @@ class SignInUserCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'signInUser',
-      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/auth/signin',
+      apiUrl:
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/auth/signin',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -121,7 +124,8 @@ class OnboardProjectCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'onboardProject',
-      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/project/onboard',
+      apiUrl:
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/project/onboard',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -145,7 +149,7 @@ class UploadHeaderImageCall {
     return ApiManager.instance.makeApiCall(
       callName: 'uploadHeaderImage',
       apiUrl:
-          'https://2e13fd720a8f.in.ngrok.io/converse/v1/project/headerImage',
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/project/headerImage',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -167,7 +171,8 @@ class FetchAllProjectsCall {
   static Future<ApiCallResponse> call() {
     return ApiManager.instance.makeApiCall(
       callName: 'fetchAllProjects',
-      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/project/',
+      apiUrl:
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/project/',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
