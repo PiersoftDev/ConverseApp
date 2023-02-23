@@ -5,7 +5,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,8 +13,6 @@ class ProjectsPageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // Stores action output result for [Backend Call - API (fetchAllProjects)] action in projects_page widget.
-  ApiCallResponse? fetchAllProjectsResponse;
   // State field(s) for ChoiceChips widget.
   String? choiceChipsValue1;
   // State field(s) for ChoiceChips widget.
