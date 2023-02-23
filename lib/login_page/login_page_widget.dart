@@ -280,6 +280,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .bodyText1,
+                                                      keyboardType:
+                                                          TextInputType.phone,
                                                       validator: _model
                                                           .whatsappPhoneNumberTextFieldControllerValidator
                                                           .asValidator(context),
