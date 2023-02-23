@@ -461,7 +461,7 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                                                       getJsonField(
                                                         listViewFetchAllProjectsResponse
                                                             .jsonBody,
-                                                        r'''$.headerUrl''',
+                                                        r'''$.headerImgUrl''',
                                                       ),
                                                     ).image,
                                                   ),
