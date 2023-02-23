@@ -137,6 +137,32 @@ class OnboardProjectCall {
   }
 }
 
+class UploadHeaderImageCall {
+  static Future<ApiCallResponse> call({
+    String? file = '',
+    String? id = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'uploadHeaderImage',
+      apiUrl:
+          'https://2e13fd720a8f.in.ngrok.io/converse/v1/project/headerImage',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      params: {
+        'file': file,
+        'id': id,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

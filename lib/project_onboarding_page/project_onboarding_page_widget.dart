@@ -2,7 +2,6 @@ import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -461,210 +460,6 @@ class _ProjectOnboardingPageWidgetState
                                               .asValidator(context),
                                         ),
                                       ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 30, 0, 0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                // HeaderImageUpload
-                                                final selectedMedia =
-                                                    await selectMedia(
-                                                  imageQuality: 50,
-                                                  mediaSource:
-                                                      MediaSource.photoGallery,
-                                                  multiImage: false,
-                                                );
-                                                if (selectedMedia != null &&
-                                                    selectedMedia.every((m) =>
-                                                        validateFileFormat(
-                                                            m.storagePath,
-                                                            context))) {
-                                                  setState(() =>
-                                                      _model.isMediaUploading1 =
-                                                          true);
-                                                  var selectedUploadedFiles =
-                                                      <FFUploadedFile>[];
-
-                                                  try {
-                                                    showUploadMessage(
-                                                      context,
-                                                      'Uploading file...',
-                                                      showLoading: true,
-                                                    );
-                                                    selectedUploadedFiles =
-                                                        selectedMedia
-                                                            .map((m) =>
-                                                                FFUploadedFile(
-                                                                  name: m
-                                                                      .storagePath
-                                                                      .split(
-                                                                          '/')
-                                                                      .last,
-                                                                  bytes:
-                                                                      m.bytes,
-                                                                  height: m
-                                                                      .dimensions
-                                                                      ?.height,
-                                                                  width: m
-                                                                      .dimensions
-                                                                      ?.width,
-                                                                ))
-                                                            .toList();
-                                                  } finally {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .hideCurrentSnackBar();
-                                                    _model.isMediaUploading1 =
-                                                        false;
-                                                  }
-                                                  if (selectedUploadedFiles
-                                                          .length ==
-                                                      selectedMedia.length) {
-                                                    setState(() {
-                                                      _model.uploadedLocalFile1 =
-                                                          selectedUploadedFiles
-                                                              .first;
-                                                    });
-                                                    showUploadMessage(
-                                                        context, 'Success!');
-                                                  } else {
-                                                    setState(() {});
-                                                    showUploadMessage(context,
-                                                        'Failed to upload media');
-                                                    return;
-                                                  }
-                                                }
-                                              },
-                                              text: 'Header',
-                                              icon: FaIcon(
-                                                FontAwesomeIcons.image,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: 150,
-                                                height: 40,
-                                                color: Color(0xFF1C3879),
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .subtitle2
-                                                    .override(
-                                                      fontFamily: 'Lexend Deca',
-                                                      color: Color(0xFFF5EFE6),
-                                                    ),
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 30, 0, 0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                // SiteImagesUpload
-                                                final selectedMedia =
-                                                    await selectMedia(
-                                                  imageQuality: 50,
-                                                  mediaSource:
-                                                      MediaSource.photoGallery,
-                                                  multiImage: true,
-                                                );
-                                                if (selectedMedia != null &&
-                                                    selectedMedia.every((m) =>
-                                                        validateFileFormat(
-                                                            m.storagePath,
-                                                            context))) {
-                                                  setState(() =>
-                                                      _model.isMediaUploading2 =
-                                                          true);
-                                                  var selectedUploadedFiles =
-                                                      <FFUploadedFile>[];
-
-                                                  try {
-                                                    showUploadMessage(
-                                                      context,
-                                                      'Uploading file...',
-                                                      showLoading: true,
-                                                    );
-                                                    selectedUploadedFiles =
-                                                        selectedMedia
-                                                            .map((m) =>
-                                                                FFUploadedFile(
-                                                                  name: m
-                                                                      .storagePath
-                                                                      .split(
-                                                                          '/')
-                                                                      .last,
-                                                                  bytes:
-                                                                      m.bytes,
-                                                                  height: m
-                                                                      .dimensions
-                                                                      ?.height,
-                                                                  width: m
-                                                                      .dimensions
-                                                                      ?.width,
-                                                                ))
-                                                            .toList();
-                                                  } finally {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .hideCurrentSnackBar();
-                                                    _model.isMediaUploading2 =
-                                                        false;
-                                                  }
-                                                  if (selectedUploadedFiles
-                                                          .length ==
-                                                      selectedMedia.length) {
-                                                    setState(() {
-                                                      _model.uploadedLocalFiles2 =
-                                                          selectedUploadedFiles;
-                                                    });
-                                                    showUploadMessage(
-                                                        context, 'Success!');
-                                                  } else {
-                                                    setState(() {});
-                                                    showUploadMessage(context,
-                                                        'Failed to upload media');
-                                                    return;
-                                                  }
-                                                }
-                                              },
-                                              text: 'Site',
-                                              icon: FaIcon(
-                                                FontAwesomeIcons.solidImage,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: 150,
-                                                height: 40,
-                                                color: Color(0xFF1C3879),
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .subtitle2
-                                                    .override(
-                                                      fontFamily: 'Lexend Deca',
-                                                      color: Color(0xFFF5EFE6),
-                                                    ),
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 30, 0, 0),
@@ -700,16 +495,13 @@ class _ProjectOnboardingPageWidgetState
                                                   content: Text(
                                                     'Successfully onboarded project',
                                                     style: TextStyle(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
+                                                      color: Color(0xFF1C3879),
                                                     ),
                                                   ),
                                                   duration: Duration(
-                                                      milliseconds: 3000),
+                                                      milliseconds: 4000),
                                                   backgroundColor:
-                                                      Color(0x00000000),
+                                                      Color(0xFFF5EFE6),
                                                 ),
                                               );
                                             }
