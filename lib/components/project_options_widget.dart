@@ -162,8 +162,8 @@ class _ProjectOptionsWidgetState extends State<ProjectOptionsWidget> {
                         color: Color(0xFF0F5F97),
                         size: 30,
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
+                      onPressed: () async {
+                        context.pushNamed('gatepass_activity_page');
                       },
                     ),
                     SelectionArea(
