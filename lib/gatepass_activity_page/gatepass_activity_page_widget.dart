@@ -49,8 +49,8 @@ class _GatepassActivityPageWidgetState
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('FloatingActionButton pressed ...');
+        onPressed: () async {
+          context.pushNamed('gatepass_page');
         },
         backgroundColor: Color(0xFF1C3879),
         elevation: 8,
