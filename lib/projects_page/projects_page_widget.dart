@@ -92,41 +92,62 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                         topRight: Radius.circular(0),
                       ),
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          child: Stack(
-                            alignment: AlignmentDirectional(0, 0),
-                            children: [
-                              SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0, -0.75),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
-                                        child: Icon(
-                                          Icons.location_history_sharp,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          size: 30,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            child: Stack(
+                              alignment: AlignmentDirectional(0, 0),
+                              children: [
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0, -0.75),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 0, 0),
+                                          child: Icon(
+                                            Icons.location_history_sharp,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            size: 30,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(0.05, -0.75),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.05, -0.75),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 0, 0),
+                                          child: Text(
+                                            'Hello, ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.05, -0.75),
                                         child: Text(
-                                          'Hello, ',
+                                          'Mahendra',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -134,84 +155,70 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
-                                                fontWeight: FontWeight.normal,
                                               ),
                                         ),
                                       ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(0.05, -0.75),
-                                      child: Text(
-                                        'Mahendra',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                            ),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, -0.75),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            150, 0, 0, 0),
-                                        child: Icon(
-                                          Icons.notifications_active,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          size: 24,
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0, -0.75),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  150, 0, 0, 0),
+                                          child: Icon(
+                                            Icons.notifications_active,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            size: 24,
+                                          ),
                                         ),
                                       ),
+                                    ],
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0, -0.25),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 20, 0, 0),
+                                    child: Text(
+                                      'FIND YOUR',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w300,
+                                          ),
                                     ),
-                                  ],
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, -0.25),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 20, 0, 0),
-                                  child: Text(
-                                    'FIND YOUR',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w300,
-                                        ),
                                   ),
                                 ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 50, 0, 0),
-                                  child: Text(
-                                    'Next site to work.',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.w300,
-                                        ),
+                                Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 50, 0, 0),
+                                    child: Text(
+                                      'Next site to work.',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -399,7 +406,6 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                                       final getProjectsItem =
                                           getProjects[getProjectsIndex];
                                       return SingleChildScrollView(
-                                        primary: false,
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
