@@ -413,6 +413,7 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       primary: false,
+                                      shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
                                       itemCount: getProjects.length,
                                       itemBuilder: (context, getProjectsIndex) {
