@@ -53,6 +53,30 @@ class FFAppState extends ChangeNotifier {
   set apiError(String _value) {
     _apiError = _value;
   }
+
+  String _selectedProjectId = '';
+  String get selectedProjectId => _selectedProjectId;
+  set selectedProjectId(String _value) {
+    _selectedProjectId = _value;
+  }
+
+  String _imgUrl1 = '';
+  String get imgUrl1 => _imgUrl1;
+  set imgUrl1(String _value) {
+    _imgUrl1 = _value;
+  }
+
+  String _imgUrl2 = '';
+  String get imgUrl2 => _imgUrl2;
+  set imgUrl2(String _value) {
+    _imgUrl2 = _value;
+  }
+
+  String _imgUrl3 = '';
+  String get imgUrl3 => _imgUrl3;
+  set imgUrl3(String _value) {
+    _imgUrl3 = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
