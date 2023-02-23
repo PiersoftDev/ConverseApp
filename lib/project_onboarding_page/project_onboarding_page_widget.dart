@@ -186,7 +186,7 @@ class _ProjectOnboardingPageWidgetState
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0x00000000),
+                                                color: Color(0xFF4AA0EB),
                                                 width: 1,
                                               ),
                                               borderRadius:
