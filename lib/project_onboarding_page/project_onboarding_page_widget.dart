@@ -63,680 +63,694 @@ class _ProjectOnboardingPageWidgetState
               decoration: BoxDecoration(
                 color: Color(0xFFF5EFE6),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional(-1, 0),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                      child: Text(
-                        'Enter Project details',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Color(0xFF1C3879),
-                              fontSize: 28,
-                            ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.8,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF5EFE6),
-                      ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Form(
-                              key: _model.formKey,
-                              autovalidateMode: AutovalidateMode.disabled,
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 0, 0),
-                                      child: TextFormField(
-                                        controller: _model
-                                            .projectNameTextFieldController,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          hintText: 'Enter your project title',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText2,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0xFF4AA0EB),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          filled: true,
-                                          fillColor: Color(0xFFF5EFE6),
-                                          contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 5),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                        maxLines: null,
-                                        validator: _model
-                                            .projectNameTextFieldControllerValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 0, 0),
-                                      child: TextFormField(
-                                        controller: _model
-                                            .regionalOfficeTextFieldController,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          hintText: 'Regional Office',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText2,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0xFF4AA0EB),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          filled: true,
-                                          fillColor: Color(0xFFF5EFE6),
-                                          contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 5),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                        maxLines: null,
-                                        validator: _model
-                                            .regionalOfficeTextFieldControllerValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 0, 0),
-                                      child: TextFormField(
-                                        controller: _model
-                                            .addressline1TextFieldController,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          hintText: 'Address line 1',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText2,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0xFF4AA0EB),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          filled: true,
-                                          fillColor: Color(0xFFF5EFE6),
-                                          contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 5),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                        validator: _model
-                                            .addressline1TextFieldControllerValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 0, 0),
-                                      child: TextFormField(
-                                        controller: _model
-                                            .addressline2TextFieldController,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          hintText: 'Address line 2',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText2,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0xFF4AA0EB),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          filled: true,
-                                          fillColor: Color(0xFFF5EFE6),
-                                          contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 5),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                        validator: _model
-                                            .addressline2TextFieldControllerValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 0, 0),
-                                      child: TextFormField(
-                                        controller:
-                                            _model.stateTextFieldController,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          hintText: 'State',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText2,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0xFF4AA0EB),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          filled: true,
-                                          fillColor: Color(0xFFF5EFE6),
-                                          contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 5),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                        validator: _model
-                                            .stateTextFieldControllerValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 0, 0),
-                                      child: TextFormField(
-                                        controller: _model
-                                            .projectContactTextFieldController,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          hintText: 'Contact number',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText2,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0xFF4AA0EB),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          filled: true,
-                                          fillColor: Color(0xFFF5EFE6),
-                                          contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 5),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                        keyboardType: TextInputType.phone,
-                                        validator: _model
-                                            .projectContactTextFieldControllerValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 30, 0, 0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              // HeaderImageUpload
-                                              final selectedMedia =
-                                                  await selectMedia(
-                                                imageQuality: 50,
-                                                mediaSource:
-                                                    MediaSource.photoGallery,
-                                                multiImage: false,
-                                              );
-                                              if (selectedMedia != null &&
-                                                  selectedMedia.every((m) =>
-                                                      validateFileFormat(
-                                                          m.storagePath,
-                                                          context))) {
-                                                setState(() => _model
-                                                    .isMediaUploading1 = true);
-                                                var selectedUploadedFiles =
-                                                    <FFUploadedFile>[];
-
-                                                try {
-                                                  showUploadMessage(
-                                                    context,
-                                                    'Uploading file...',
-                                                    showLoading: true,
-                                                  );
-                                                  selectedUploadedFiles =
-                                                      selectedMedia
-                                                          .map((m) =>
-                                                              FFUploadedFile(
-                                                                name: m
-                                                                    .storagePath
-                                                                    .split('/')
-                                                                    .last,
-                                                                bytes: m.bytes,
-                                                                height: m
-                                                                    .dimensions
-                                                                    ?.height,
-                                                                width: m
-                                                                    .dimensions
-                                                                    ?.width,
-                                                              ))
-                                                          .toList();
-                                                } finally {
-                                                  ScaffoldMessenger.of(context)
-                                                      .hideCurrentSnackBar();
-                                                  _model.isMediaUploading1 =
-                                                      false;
-                                                }
-                                                if (selectedUploadedFiles
-                                                        .length ==
-                                                    selectedMedia.length) {
-                                                  setState(() {
-                                                    _model.uploadedLocalFile1 =
-                                                        selectedUploadedFiles
-                                                            .first;
-                                                  });
-                                                  showUploadMessage(
-                                                      context, 'Success!');
-                                                } else {
-                                                  setState(() {});
-                                                  showUploadMessage(context,
-                                                      'Failed to upload media');
-                                                  return;
-                                                }
-                                              }
-                                            },
-                                            text: 'Header',
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.image,
-                                            ),
-                                            options: FFButtonOptions(
-                                              width: 150,
-                                              height: 40,
-                                              color: Color(0xFF1C3879),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFFF5EFE6),
-                                                  ),
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 30, 0, 0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              // SiteImagesUpload
-                                              final selectedMedia =
-                                                  await selectMedia(
-                                                imageQuality: 50,
-                                                mediaSource:
-                                                    MediaSource.photoGallery,
-                                                multiImage: true,
-                                              );
-                                              if (selectedMedia != null &&
-                                                  selectedMedia.every((m) =>
-                                                      validateFileFormat(
-                                                          m.storagePath,
-                                                          context))) {
-                                                setState(() => _model
-                                                    .isMediaUploading2 = true);
-                                                var selectedUploadedFiles =
-                                                    <FFUploadedFile>[];
-
-                                                try {
-                                                  showUploadMessage(
-                                                    context,
-                                                    'Uploading file...',
-                                                    showLoading: true,
-                                                  );
-                                                  selectedUploadedFiles =
-                                                      selectedMedia
-                                                          .map((m) =>
-                                                              FFUploadedFile(
-                                                                name: m
-                                                                    .storagePath
-                                                                    .split('/')
-                                                                    .last,
-                                                                bytes: m.bytes,
-                                                                height: m
-                                                                    .dimensions
-                                                                    ?.height,
-                                                                width: m
-                                                                    .dimensions
-                                                                    ?.width,
-                                                              ))
-                                                          .toList();
-                                                } finally {
-                                                  ScaffoldMessenger.of(context)
-                                                      .hideCurrentSnackBar();
-                                                  _model.isMediaUploading2 =
-                                                      false;
-                                                }
-                                                if (selectedUploadedFiles
-                                                        .length ==
-                                                    selectedMedia.length) {
-                                                  setState(() {
-                                                    _model.uploadedLocalFiles2 =
-                                                        selectedUploadedFiles;
-                                                  });
-                                                  showUploadMessage(
-                                                      context, 'Success!');
-                                                } else {
-                                                  setState(() {});
-                                                  showUploadMessage(context,
-                                                      'Failed to upload media');
-                                                  return;
-                                                }
-                                              }
-                                            },
-                                            text: 'Site',
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.solidImage,
-                                            ),
-                                            options: FFButtonOptions(
-                                              width: 150,
-                                              height: 40,
-                                              color: Color(0xFF1C3879),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFFF5EFE6),
-                                                  ),
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 30, 0, 0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          _model.onboardProjectResponse =
-                                              await OnboardProjectCall.call(
-                                            projectTitle: _model
-                                                .projectNameTextFieldController
-                                                .text,
-                                            regionalOffice: _model
-                                                .regionalOfficeTextFieldController
-                                                .text,
-                                            addressLine1: _model
-                                                .addressline1TextFieldController
-                                                .text,
-                                            addressLine2: _model
-                                                .addressline2TextFieldController
-                                                .text,
-                                            state: _model
-                                                .stateTextFieldController.text,
-                                            contactNumber: _model
-                                                .projectContactTextFieldController
-                                                .text,
-                                          );
-                                          if ((_model.onboardProjectResponse
-                                                  ?.succeeded ??
-                                              true)) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Successfully onboarded project',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                  ),
-                                                ),
-                                                duration: Duration(
-                                                    milliseconds: 3000),
-                                                backgroundColor:
-                                                    Color(0x00000000),
-                                              ),
-                                            );
-                                          }
-
-                                          setState(() {});
-                                        },
-                                        text: 'Onboard Project',
-                                        icon: FaIcon(
-                                          FontAwesomeIcons.angellist,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: 200,
-                                          height: 40,
-                                          color: Color(0xFF1C3879),
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFFF5EFE6),
-                                                  ),
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(-1, 0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                        child: Text(
+                          'Enter Project details',
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Color(0xFF1C3879),
+                                    fontSize: 28,
+                                  ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.8,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFF5EFE6),
+                        ),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Form(
+                                key: _model.formKey,
+                                autovalidateMode: AutovalidateMode.disabled,
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 20, 0, 0),
+                                        child: TextFormField(
+                                          controller: _model
+                                              .projectNameTextFieldController,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            hintText:
+                                                'Enter your project title',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText2,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFF4AA0EB),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            filled: true,
+                                            fillColor: Color(0xFFF5EFE6),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 5, 5, 5),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                          maxLines: null,
+                                          validator: _model
+                                              .projectNameTextFieldControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 20, 0, 0),
+                                        child: TextFormField(
+                                          controller: _model
+                                              .regionalOfficeTextFieldController,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            hintText: 'Regional Office',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText2,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFF4AA0EB),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            filled: true,
+                                            fillColor: Color(0xFFF5EFE6),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 5, 5, 5),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                          maxLines: null,
+                                          validator: _model
+                                              .regionalOfficeTextFieldControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 20, 0, 0),
+                                        child: TextFormField(
+                                          controller: _model
+                                              .addressline1TextFieldController,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            hintText: 'Address line 1',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText2,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFF4AA0EB),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            filled: true,
+                                            fillColor: Color(0xFFF5EFE6),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 5, 5, 5),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                          validator: _model
+                                              .addressline1TextFieldControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 20, 0, 0),
+                                        child: TextFormField(
+                                          controller: _model
+                                              .addressline2TextFieldController,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            hintText: 'Address line 2',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText2,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFF4AA0EB),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            filled: true,
+                                            fillColor: Color(0xFFF5EFE6),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 5, 5, 5),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                          validator: _model
+                                              .addressline2TextFieldControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 20, 0, 0),
+                                        child: TextFormField(
+                                          controller:
+                                              _model.stateTextFieldController,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            hintText: 'State',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText2,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFF4AA0EB),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            filled: true,
+                                            fillColor: Color(0xFFF5EFE6),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 5, 5, 5),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                          validator: _model
+                                              .stateTextFieldControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 20, 0, 0),
+                                        child: TextFormField(
+                                          controller: _model
+                                              .projectContactTextFieldController,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            hintText: 'Contact number',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText2,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFF4AA0EB),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            filled: true,
+                                            fillColor: Color(0xFFF5EFE6),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 5, 5, 5),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                          keyboardType: TextInputType.phone,
+                                          validator: _model
+                                              .projectContactTextFieldControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 30, 0, 0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                // HeaderImageUpload
+                                                final selectedMedia =
+                                                    await selectMedia(
+                                                  imageQuality: 50,
+                                                  mediaSource:
+                                                      MediaSource.photoGallery,
+                                                  multiImage: false,
+                                                );
+                                                if (selectedMedia != null &&
+                                                    selectedMedia.every((m) =>
+                                                        validateFileFormat(
+                                                            m.storagePath,
+                                                            context))) {
+                                                  setState(() =>
+                                                      _model.isMediaUploading1 =
+                                                          true);
+                                                  var selectedUploadedFiles =
+                                                      <FFUploadedFile>[];
+
+                                                  try {
+                                                    showUploadMessage(
+                                                      context,
+                                                      'Uploading file...',
+                                                      showLoading: true,
+                                                    );
+                                                    selectedUploadedFiles =
+                                                        selectedMedia
+                                                            .map((m) =>
+                                                                FFUploadedFile(
+                                                                  name: m
+                                                                      .storagePath
+                                                                      .split(
+                                                                          '/')
+                                                                      .last,
+                                                                  bytes:
+                                                                      m.bytes,
+                                                                  height: m
+                                                                      .dimensions
+                                                                      ?.height,
+                                                                  width: m
+                                                                      .dimensions
+                                                                      ?.width,
+                                                                ))
+                                                            .toList();
+                                                  } finally {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .hideCurrentSnackBar();
+                                                    _model.isMediaUploading1 =
+                                                        false;
+                                                  }
+                                                  if (selectedUploadedFiles
+                                                          .length ==
+                                                      selectedMedia.length) {
+                                                    setState(() {
+                                                      _model.uploadedLocalFile1 =
+                                                          selectedUploadedFiles
+                                                              .first;
+                                                    });
+                                                    showUploadMessage(
+                                                        context, 'Success!');
+                                                  } else {
+                                                    setState(() {});
+                                                    showUploadMessage(context,
+                                                        'Failed to upload media');
+                                                    return;
+                                                  }
+                                                }
+                                              },
+                                              text: 'Header',
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.image,
+                                              ),
+                                              options: FFButtonOptions(
+                                                width: 150,
+                                                height: 40,
+                                                color: Color(0xFF1C3879),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .subtitle2
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFFF5EFE6),
+                                                    ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 30, 0, 0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                // SiteImagesUpload
+                                                final selectedMedia =
+                                                    await selectMedia(
+                                                  imageQuality: 50,
+                                                  mediaSource:
+                                                      MediaSource.photoGallery,
+                                                  multiImage: true,
+                                                );
+                                                if (selectedMedia != null &&
+                                                    selectedMedia.every((m) =>
+                                                        validateFileFormat(
+                                                            m.storagePath,
+                                                            context))) {
+                                                  setState(() =>
+                                                      _model.isMediaUploading2 =
+                                                          true);
+                                                  var selectedUploadedFiles =
+                                                      <FFUploadedFile>[];
+
+                                                  try {
+                                                    showUploadMessage(
+                                                      context,
+                                                      'Uploading file...',
+                                                      showLoading: true,
+                                                    );
+                                                    selectedUploadedFiles =
+                                                        selectedMedia
+                                                            .map((m) =>
+                                                                FFUploadedFile(
+                                                                  name: m
+                                                                      .storagePath
+                                                                      .split(
+                                                                          '/')
+                                                                      .last,
+                                                                  bytes:
+                                                                      m.bytes,
+                                                                  height: m
+                                                                      .dimensions
+                                                                      ?.height,
+                                                                  width: m
+                                                                      .dimensions
+                                                                      ?.width,
+                                                                ))
+                                                            .toList();
+                                                  } finally {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .hideCurrentSnackBar();
+                                                    _model.isMediaUploading2 =
+                                                        false;
+                                                  }
+                                                  if (selectedUploadedFiles
+                                                          .length ==
+                                                      selectedMedia.length) {
+                                                    setState(() {
+                                                      _model.uploadedLocalFiles2 =
+                                                          selectedUploadedFiles;
+                                                    });
+                                                    showUploadMessage(
+                                                        context, 'Success!');
+                                                  } else {
+                                                    setState(() {});
+                                                    showUploadMessage(context,
+                                                        'Failed to upload media');
+                                                    return;
+                                                  }
+                                                }
+                                              },
+                                              text: 'Site',
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.solidImage,
+                                              ),
+                                              options: FFButtonOptions(
+                                                width: 150,
+                                                height: 40,
+                                                color: Color(0xFF1C3879),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .subtitle2
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFFF5EFE6),
+                                                    ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 30, 0, 0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            _model.onboardProjectResponse =
+                                                await OnboardProjectCall.call(
+                                              projectTitle: _model
+                                                  .projectNameTextFieldController
+                                                  .text,
+                                              regionalOffice: _model
+                                                  .regionalOfficeTextFieldController
+                                                  .text,
+                                              addressLine1: _model
+                                                  .addressline1TextFieldController
+                                                  .text,
+                                              addressLine2: _model
+                                                  .addressline2TextFieldController
+                                                  .text,
+                                              state: _model
+                                                  .stateTextFieldController
+                                                  .text,
+                                              contactNumber: _model
+                                                  .projectContactTextFieldController
+                                                  .text,
+                                            );
+                                            if ((_model.onboardProjectResponse
+                                                    ?.succeeded ??
+                                                true)) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Successfully onboarded project',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 3000),
+                                                  backgroundColor:
+                                                      Color(0x00000000),
+                                                ),
+                                              );
+                                            }
+
+                                            setState(() {});
+                                          },
+                                          text: 'Onboard Project',
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.angellist,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 200,
+                                            height: 40,
+                                            color: Color(0xFF1C3879),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .subtitle2
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFFF5EFE6),
+                                                    ),
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
