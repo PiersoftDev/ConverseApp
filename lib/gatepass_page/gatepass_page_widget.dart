@@ -107,7 +107,7 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: Color(0xFF4AA0EB),
                                       width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
@@ -167,7 +167,7 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: Color(0xFF4AA0EB),
                                       width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
@@ -254,7 +254,11 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                       decoration: InputDecoration(
                                         hintText: 'vehicle number',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2,
+                                            .bodyText2
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Color(0xFF607EAA),
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFF4AA0EB),
@@ -265,7 +269,7 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color: Color(0x00000000),
+                                            color: Color(0xFF4AA0EB),
                                             width: 1,
                                           ),
                                           borderRadius:
@@ -355,7 +359,11 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                       decoration: InputDecoration(
                                         hintText: 'PO Number',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2,
+                                            .bodyText2
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Color(0xFF607EAA),
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFF4AA0EB),
@@ -366,7 +374,7 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color: Color(0x00000000),
+                                            color: Color(0xFF4AA0EB),
                                             width: 1,
                                           ),
                                           borderRadius:
