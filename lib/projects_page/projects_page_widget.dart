@@ -1,4 +1,5 @@
 import '../flutter_flow/flutter_flow_choice_chips.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
@@ -43,6 +44,27 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFF5EFE6),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('FloatingActionButton pressed ...');
+        },
+        backgroundColor: Color(0xFF1C3879),
+        elevation: 8,
+        child: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.add,
+            color: Color(0xFFF5EFE6),
+            size: 30,
+          ),
+          onPressed: () async {
+            context.pushNamed('project_onboarding_page');
+          },
+        ),
+      ),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
