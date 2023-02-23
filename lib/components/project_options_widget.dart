@@ -100,40 +100,45 @@ class _ProjectOptionsWidgetState extends State<ProjectOptionsWidget> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-              child: Container(
-                width: 60,
-                decoration: BoxDecoration(
-                  color: Color(0xFFF5EFE6),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 60,
-                      icon: FaIcon(
-                        FontAwesomeIcons.ticketAlt,
-                        color: Color(0xFF0F5F97),
-                        size: 30,
+              child: InkWell(
+                onTap: () async {
+                  context.pushNamed('gatepass_activity_page');
+                },
+                child: Container(
+                  width: 60,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFF5EFE6),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 30,
+                        borderWidth: 1,
+                        buttonSize: 60,
+                        icon: FaIcon(
+                          FontAwesomeIcons.ticketAlt,
+                          color: Color(0xFF0F5F97),
+                          size: 30,
+                        ),
+                        showLoadingIndicator: true,
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
                       ),
-                      showLoadingIndicator: true,
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                    SelectionArea(
-                        child: Text(
-                      'Gatepass',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Roboto',
-                            color: Color(0xFF1A374D),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                    )),
-                  ],
+                      SelectionArea(
+                          child: Text(
+                        'Gatepass',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Roboto',
+                              color: Color(0xFF1A374D),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      )),
+                    ],
+                  ),
                 ),
               ),
             ),
