@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -396,10 +395,7 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                         alignment: AlignmentDirectional(0, 1),
                         children: [
                           FutureBuilder<ApiCallResponse>(
-                            future: (_model.apiRequestCompleter ??=
-                                    Completer<ApiCallResponse>()
-                                      ..complete(FetchAllProjectsCall.call()))
-                                .future,
+                            future: FetchAllProjectsCall.call(),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -416,129 +412,131 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                               }
                               final listViewFetchAllProjectsResponse =
                                   snapshot.data!;
-                              return RefreshIndicator(
-                                onRefresh: () async {
-                                  setState(
-                                      () => _model.apiRequestCompleter = null);
-                                  await _model.waitForApiRequestCompleter();
-                                },
-                                child: ListView(
-                                  padding: EdgeInsets.zero,
-                                  primary: false,
-                                  scrollDirection: Axis.vertical,
-                                  children: [
-                                    SingleChildScrollView(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15, 15, 15, 15),
-                                            child: Card(
-                                              clipBehavior:
-                                                  Clip.antiAliasWithSaveLayer,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: Container(
-                                                width: double.infinity,
-                                                height: 300,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.network(
-                                                      getJsonField(
-                                                        listViewFetchAllProjectsResponse
-                                                            .jsonBody,
-                                                        r'''$.headerImgUrl''',
-                                                      ),
-                                                    ).image,
-                                                  ),
+                              return Builder(
+                                builder: (context) {
+                                  final getProjects = getJsonField(
+                                    listViewFetchAllProjectsResponse.jsonBody,
+                                    r'''$[*]''',
+                                  ).toList();
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    primary: false,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: getProjects.length,
+                                    itemBuilder: (context, getProjectsIndex) {
+                                      final getProjectsItem =
+                                          getProjects[getProjectsIndex];
+                                      return SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(15, 15, 15, 15),
+                                              child: Card(
+                                                clipBehavior:
+                                                    Clip.antiAliasWithSaveLayer,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                elevation: 2,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
                                                 ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  children: [
-                                                    ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0),
-                                                      child: BackdropFilter(
-                                                        filter:
-                                                            ImageFilter.blur(
-                                                          sigmaX: 0,
-                                                          sigmaY: 0,
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  height: 300,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.network(
+                                                        getJsonField(
+                                                          getProjectsItem,
+                                                          r'''$.headerImgUrl''',
                                                         ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0,
-                                                                      200,
-                                                                      0,
-                                                                      20),
-                                                          child: Container(
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
-                                                                0.8,
-                                                            height: 50,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x60E8DFCA),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0, 0),
-                                                              child: Text(
-                                                                'ESI, Hyderabad',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: Color(
-                                                                          0xFF1C3879),
-                                                                      fontSize:
-                                                                          20,
-                                                                    ),
+                                                      ).image,
+                                                    ),
+                                                  ),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0),
+                                                        child: BackdropFilter(
+                                                          filter:
+                                                              ImageFilter.blur(
+                                                            sigmaX: 0,
+                                                            sigmaY: 0,
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0,
+                                                                        200,
+                                                                        0,
+                                                                        20),
+                                                            child: Container(
+                                                              width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.8,
+                                                              height: 50,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0x60E8DFCA),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0, 0),
+                                                                child: Text(
+                                                                  'ESI, Hyderabad',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Color(
+                                                                            0xFF1C3879),
+                                                                        fontSize:
+                                                                            20,
+                                                                      ),
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
                               );
                             },
                           ),
