@@ -67,14 +67,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ProjectOnboardingPageWidget(),
             ),
             FFRoute(
-              name: 'projects_page',
-              path: 'projectsPage',
-              builder: (context, params) => ProjectsPageWidget(),
-            ),
-            FFRoute(
               name: 'gatepass_activity_page',
               path: 'gatepassActivityPage',
               builder: (context, params) => GatepassActivityPageWidget(),
+            ),
+            FFRoute(
+              name: 'projects_page',
+              path: 'projectsPage',
+              builder: (context, params) => ProjectsPageWidget(),
             ),
             FFRoute(
               name: 'gatepass_page',
