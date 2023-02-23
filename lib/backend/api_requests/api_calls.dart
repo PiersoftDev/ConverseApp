@@ -25,7 +25,7 @@ class CreateUserCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createUser',
-      apiUrl: 'https://8eaaf68f38ca.in.ngrok.io/converse/v1/auth/signup',
+      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/auth/signup',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ class ConfirmUserCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'confirmUser',
-      apiUrl: 'https://8eaaf68f38ca.in.ngrok.io/converse/v1/auth/confirmSignup',
+      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/auth/confirmSignup',
       callType: ApiCallType.POST,
       headers: {
         'Content-type': 'application/json',
@@ -85,7 +85,7 @@ class SignInUserCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'signInUser',
-      apiUrl: 'https://8eaaf68f38ca.in.ngrok.io/converse/v1/auth/signin',
+      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/auth/signin',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -112,16 +112,16 @@ class OnboardProjectCall {
   }) {
     final body = '''
 {
-  "projectTitle": "ESI",
-  "regionalOffice": "Hyderabad",
-  "addressLine1": "ESI",
-  "addressLine2": "SR Nagar",
-  "state": "Telangana",
-  "contactNumber": "+919945014010"
+  "projectTitle": "${projectTitle}",
+  "regionalOffice": "${regionalOffice}",
+  "addressLine1": "${addressLine1}",
+  "addressLine2": "${addressLine2}",
+  "state": "${state}",
+  "contactNumber": "${contactNumber}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'onboardProject',
-      apiUrl: 'https://8eaaf68f38ca.in.ngrok.io/converse/v1/project/onboard',
+      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/project/onboard',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',

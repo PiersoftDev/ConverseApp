@@ -1,3 +1,4 @@
+import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -34,8 +35,15 @@ class ProjectOnboardingPageModel extends FlutterFlowModel {
   TextEditingController? projectContactTextFieldController;
   String? Function(BuildContext, String?)?
       projectContactTextFieldControllerValidator;
-  bool isMediaUploading = false;
-  List<FFUploadedFile> uploadedLocalFiles = [];
+  bool isMediaUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  bool isMediaUploading2 = false;
+  List<FFUploadedFile> uploadedLocalFiles2 = [];
+
+  // Stores action output result for [Backend Call - API (onboardProject)] action in OnboardProjectButton widget.
+  ApiCallResponse? onboardProjectResponse;
 
   /// Initialization and disposal methods.
 

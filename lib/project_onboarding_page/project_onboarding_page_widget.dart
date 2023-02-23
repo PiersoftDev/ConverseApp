@@ -1,3 +1,4 @@
+import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -444,95 +445,248 @@ class _ProjectOnboardingPageWidgetState
                                           .asValidator(context),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 30, 0, 0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        final selectedMedia = await selectMedia(
-                                          imageQuality: 50,
-                                          mediaSource: MediaSource.photoGallery,
-                                          multiImage: true,
-                                        );
-                                        if (selectedMedia != null &&
-                                            selectedMedia.every((m) =>
-                                                validateFileFormat(
-                                                    m.storagePath, context))) {
-                                          setState(() =>
-                                              _model.isMediaUploading = true);
-                                          var selectedUploadedFiles =
-                                              <FFUploadedFile>[];
-
-                                          try {
-                                            showUploadMessage(
-                                              context,
-                                              'Uploading file...',
-                                              showLoading: true,
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 30, 0, 0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            // HeaderImageUpload
+                                            final selectedMedia =
+                                                await selectMedia(
+                                              imageQuality: 50,
+                                              mediaSource:
+                                                  MediaSource.photoGallery,
+                                              multiImage: false,
                                             );
-                                            selectedUploadedFiles =
-                                                selectedMedia
-                                                    .map((m) => FFUploadedFile(
-                                                          name: m.storagePath
-                                                              .split('/')
-                                                              .last,
-                                                          bytes: m.bytes,
-                                                          height: m.dimensions
-                                                              ?.height,
-                                                          width: m.dimensions
-                                                              ?.width,
-                                                        ))
-                                                    .toList();
-                                          } finally {
-                                            ScaffoldMessenger.of(context)
-                                                .hideCurrentSnackBar();
-                                            _model.isMediaUploading = false;
-                                          }
-                                          if (selectedUploadedFiles.length ==
-                                              selectedMedia.length) {
-                                            setState(() {
-                                              _model.uploadedLocalFiles =
-                                                  selectedUploadedFiles;
-                                            });
-                                            showUploadMessage(
-                                                context, 'Success!');
-                                          } else {
-                                            setState(() {});
-                                            showUploadMessage(context,
-                                                'Failed to upload media');
-                                            return;
-                                          }
-                                        }
-                                      },
-                                      text: 'Upload Site Images',
-                                      icon: Icon(
-                                        Icons.upload_file,
-                                        size: 15,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width: 200,
-                                        height: 40,
-                                        color: Color(0xFF1C3879),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFFF5EFE6),
+                                            if (selectedMedia != null &&
+                                                selectedMedia.every((m) =>
+                                                    validateFileFormat(
+                                                        m.storagePath,
+                                                        context))) {
+                                              setState(() => _model
+                                                  .isMediaUploading1 = true);
+                                              var selectedUploadedFiles =
+                                                  <FFUploadedFile>[];
+
+                                              try {
+                                                showUploadMessage(
+                                                  context,
+                                                  'Uploading file...',
+                                                  showLoading: true,
+                                                );
+                                                selectedUploadedFiles =
+                                                    selectedMedia
+                                                        .map((m) =>
+                                                            FFUploadedFile(
+                                                              name: m
+                                                                  .storagePath
+                                                                  .split('/')
+                                                                  .last,
+                                                              bytes: m.bytes,
+                                                              height: m
+                                                                  .dimensions
+                                                                  ?.height,
+                                                              width: m
+                                                                  .dimensions
+                                                                  ?.width,
+                                                            ))
+                                                        .toList();
+                                              } finally {
+                                                ScaffoldMessenger.of(context)
+                                                    .hideCurrentSnackBar();
+                                                _model.isMediaUploading1 =
+                                                    false;
+                                              }
+                                              if (selectedUploadedFiles
+                                                      .length ==
+                                                  selectedMedia.length) {
+                                                setState(() {
+                                                  _model.uploadedLocalFile1 =
+                                                      selectedUploadedFiles
+                                                          .first;
+                                                });
+                                                showUploadMessage(
+                                                    context, 'Success!');
+                                              } else {
+                                                setState(() {});
+                                                showUploadMessage(context,
+                                                    'Failed to upload media');
+                                                return;
+                                              }
+                                            }
+                                          },
+                                          text: 'Header',
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.image,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 150,
+                                            height: 40,
+                                            color: Color(0xFF1C3879),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .subtitle2
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFFF5EFE6),
+                                                    ),
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1,
                                             ),
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1,
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
                                       ),
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 30, 0, 0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            // SiteImagesUpload
+                                            final selectedMedia =
+                                                await selectMedia(
+                                              imageQuality: 50,
+                                              mediaSource:
+                                                  MediaSource.photoGallery,
+                                              multiImage: true,
+                                            );
+                                            if (selectedMedia != null &&
+                                                selectedMedia.every((m) =>
+                                                    validateFileFormat(
+                                                        m.storagePath,
+                                                        context))) {
+                                              setState(() => _model
+                                                  .isMediaUploading2 = true);
+                                              var selectedUploadedFiles =
+                                                  <FFUploadedFile>[];
+
+                                              try {
+                                                showUploadMessage(
+                                                  context,
+                                                  'Uploading file...',
+                                                  showLoading: true,
+                                                );
+                                                selectedUploadedFiles =
+                                                    selectedMedia
+                                                        .map((m) =>
+                                                            FFUploadedFile(
+                                                              name: m
+                                                                  .storagePath
+                                                                  .split('/')
+                                                                  .last,
+                                                              bytes: m.bytes,
+                                                              height: m
+                                                                  .dimensions
+                                                                  ?.height,
+                                                              width: m
+                                                                  .dimensions
+                                                                  ?.width,
+                                                            ))
+                                                        .toList();
+                                              } finally {
+                                                ScaffoldMessenger.of(context)
+                                                    .hideCurrentSnackBar();
+                                                _model.isMediaUploading2 =
+                                                    false;
+                                              }
+                                              if (selectedUploadedFiles
+                                                      .length ==
+                                                  selectedMedia.length) {
+                                                setState(() {
+                                                  _model.uploadedLocalFiles2 =
+                                                      selectedUploadedFiles;
+                                                });
+                                                showUploadMessage(
+                                                    context, 'Success!');
+                                              } else {
+                                                setState(() {});
+                                                showUploadMessage(context,
+                                                    'Failed to upload media');
+                                                return;
+                                              }
+                                            }
+                                          },
+                                          text: 'Site',
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.solidImage,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 150,
+                                            height: 40,
+                                            color: Color(0xFF1C3879),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .subtitle2
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFFF5EFE6),
+                                                    ),
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 30, 0, 0),
                                     child: FFButtonWidget(
-                                      onPressed: () {
-                                        print(
-                                            'OnboardProjectButton pressed ...');
+                                      onPressed: () async {
+                                        _model.onboardProjectResponse =
+                                            await OnboardProjectCall.call(
+                                          projectTitle: _model
+                                              .projectNameTextFieldController
+                                              .text,
+                                          regionalOffice: _model
+                                              .regionalOfficeTextFieldController
+                                              .text,
+                                          addressLine1: _model
+                                              .addressline1TextFieldController
+                                              .text,
+                                          addressLine2: _model
+                                              .addressline2TextFieldController
+                                              .text,
+                                          state: _model
+                                              .stateTextFieldController.text,
+                                          contactNumber: _model
+                                              .projectContactTextFieldController
+                                              .text,
+                                        );
+                                        if ((_model.onboardProjectResponse
+                                                ?.succeeded ??
+                                            true)) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Successfully onboarded project',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 3000),
+                                              backgroundColor:
+                                                  Color(0x00000000),
+                                            ),
+                                          );
+                                        }
+
+                                        setState(() {});
                                       },
                                       text: 'Onboard Project',
                                       icon: FaIcon(
