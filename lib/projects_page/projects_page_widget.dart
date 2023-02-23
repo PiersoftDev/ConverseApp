@@ -508,7 +508,10 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                                                                     AlignmentDirectional(
                                                                         0, 0),
                                                                 child: Text(
-                                                                  'ESI, Hyderabad',
+                                                                  getJsonField(
+                                                                    getProjectsItem,
+                                                                    r'''$.projectTitle''',
+                                                                  ).toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
