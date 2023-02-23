@@ -77,6 +77,12 @@ class FFAppState extends ChangeNotifier {
   set imgUrl3(String _value) {
     _imgUrl3 = _value;
   }
+
+  String _gatepassTempId = '';
+  String get gatepassTempId => _gatepassTempId;
+  set gatepassTempId(String _value) {
+    _gatepassTempId = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
