@@ -163,6 +163,24 @@ class UploadHeaderImageCall {
   }
 }
 
+class FetchAllProjectsCall {
+  static Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'fetchAllProjects',
+      apiUrl: 'https://2e13fd720a8f.in.ngrok.io/converse/v1/project/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
