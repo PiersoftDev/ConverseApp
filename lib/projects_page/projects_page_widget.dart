@@ -460,6 +460,9 @@ class _ProjectsPageWidgetState extends State<ProjectsPageWidget> {
                                                       r'''$.siteImageUrls[2]''',
                                                     );
                                                   });
+
+                                                  context.pushNamed(
+                                                      'project_details_page');
                                                 },
                                                 child: Card(
                                                   clipBehavior: Clip
