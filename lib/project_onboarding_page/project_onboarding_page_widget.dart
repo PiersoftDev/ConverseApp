@@ -504,6 +504,9 @@ class _ProjectOnboardingPageWidgetState
                                                       Color(0xFFF5EFE6),
                                                 ),
                                               );
+
+                                              context
+                                                  .pushNamed('projects_page');
                                             }
 
                                             setState(() {});
