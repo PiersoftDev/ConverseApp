@@ -191,8 +191,8 @@ class CreateGatepassCall {
     String? driverName = '',
     String? driverPhoneNumber = '',
     String? material = '',
-    String? gatepassVehicleImg = '',
-    String? purchaseOrderImg = '',
+    FFUploadedFile? gatepassVehicleImg,
+    FFUploadedFile? purchaseOrderImg,
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'createGatepass',

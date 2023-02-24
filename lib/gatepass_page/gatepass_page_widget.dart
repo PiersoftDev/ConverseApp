@@ -412,7 +412,16 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                     return;
                                   }
                                   _model.createGatepassResponse =
-                                      await CreateGatepassCall.call();
+                                      await CreateGatepassCall.call(
+                                    driverName:
+                                        _model.driverNameController.text,
+                                    driverPhoneNumber:
+                                        _model.driverPhoneNumberController.text,
+                                    material: _model.dropDownValue,
+                                    gatepassVehicleImg:
+                                        _model.uploadedLocalFile1,
+                                    purchaseOrderImg: _model.uploadedLocalFile2,
+                                  );
                                   _shouldSetState = true;
                                   if ((_model
                                           .createGatepassResponse?.succeeded ??
