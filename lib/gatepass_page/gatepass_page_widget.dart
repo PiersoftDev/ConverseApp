@@ -421,6 +421,7 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                     gatepassVehicleImg:
                                         _model.uploadedLocalFile1,
                                     purchaseOrderImg: _model.uploadedLocalFile2,
+                                    projectId: FFAppState().selectedProjectId,
                                   );
                                   _shouldSetState = true;
                                   if ((_model
@@ -435,10 +436,12 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                                 .primaryText,
                                           ),
                                         ),
-                                        duration: Duration(milliseconds: 4000),
+                                        duration: Duration(milliseconds: 2000),
                                         backgroundColor: Color(0x00000000),
                                       ),
                                     );
+
+                                    context.pushNamed('gatepass_activity_page');
                                   } else {
                                     if (_shouldSetState) setState(() {});
                                     return;

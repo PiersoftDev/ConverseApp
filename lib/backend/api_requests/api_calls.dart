@@ -193,10 +193,12 @@ class CreateGatepassCall {
     String? material = '',
     FFUploadedFile? gatepassVehicleImg,
     FFUploadedFile? purchaseOrderImg,
+    String? projectId = '',
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'createGatepass',
-      apiUrl: 'https://562163236fb0.in.ngrok.io/converse/v1/gatepass/',
+      apiUrl:
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/gatepass/',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -207,6 +209,7 @@ class CreateGatepassCall {
         'material': material,
         'gatepassVehicleImg': gatepassVehicleImg,
         'purchaseOrderImg': purchaseOrderImg,
+        'projectId': projectId,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
