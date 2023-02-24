@@ -197,7 +197,7 @@ class CreateGatepassCall {
     return ApiManager.instance.makeApiCall(
       callName: 'createGatepass',
       apiUrl: 'https://562163236fb0.in.ngrok.io/converse/v1/gatepass/',
-      callType: ApiCallType.GET,
+      callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -208,6 +208,7 @@ class CreateGatepassCall {
         'gatepassVehicleImg': gatepassVehicleImg,
         'purchaseOrderImg': purchaseOrderImg,
       },
+      bodyType: BodyType.MULTIPART,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
