@@ -1,11 +1,10 @@
+import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/random_data_util.dart' as random_data;
+import '../flutter_flow/upload_media.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -30,23 +29,8 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
     super.initState();
     _model = createModel(context, () => GatepassPageModel());
 
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().gatepassTempId = random_data.randomString(
-          10,
-          10,
-          true,
-          true,
-          true,
-        );
-      });
-    });
-
     _model.driverNameController ??= TextEditingController();
     _model.driverPhoneNumberController ??= TextEditingController();
-    _model.vehicleNumberController ??= TextEditingController();
-    _model.poNumberController ??= TextEditingController();
   }
 
   @override
@@ -254,223 +238,204 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                 ),
                               ),
                             ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        30, 15, 10, 5),
-                                    child: TextFormField(
-                                      controller:
-                                          _model.vehicleNumberController,
-                                      readOnly: true,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        hintText: 'vehicle number',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF607EAA),
-                                            ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0xFF4AA0EB),
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0xFF4AA0EB),
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        filled: true,
-                                        fillColor: Color(0xFFF5EFE6),
-                                        contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                10, 10, 10, 10),
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      final selectedMedia = await selectMedia(
+                                        imageQuality: 50,
+                                        multiImage: false,
+                                      );
+                                      if (selectedMedia != null &&
+                                          selectedMedia.every((m) =>
+                                              validateFileFormat(
+                                                  m.storagePath, context))) {
+                                        setState(() =>
+                                            _model.isMediaUploading1 = true);
+                                        var selectedUploadedFiles =
+                                            <FFUploadedFile>[];
+
+                                        try {
+                                          showUploadMessage(
+                                            context,
+                                            'Uploading file...',
+                                            showLoading: true,
+                                          );
+                                          selectedUploadedFiles = selectedMedia
+                                              .map((m) => FFUploadedFile(
+                                                    name: m.storagePath
+                                                        .split('/')
+                                                        .last,
+                                                    bytes: m.bytes,
+                                                    height:
+                                                        m.dimensions?.height,
+                                                    width: m.dimensions?.width,
+                                                  ))
+                                              .toList();
+                                        } finally {
+                                          ScaffoldMessenger.of(context)
+                                              .hideCurrentSnackBar();
+                                          _model.isMediaUploading1 = false;
+                                        }
+                                        if (selectedUploadedFiles.length ==
+                                            selectedMedia.length) {
+                                          setState(() {
+                                            _model.uploadedLocalFile1 =
+                                                selectedUploadedFiles.first;
+                                          });
+                                          showUploadMessage(
+                                              context, 'Success!');
+                                        } else {
+                                          setState(() {});
+                                          showUploadMessage(context,
+                                              'Failed to upload media');
+                                          return;
+                                        }
+                                      }
+                                    },
+                                    text: 'Vehicle',
+                                    icon: FaIcon(
+                                      FontAwesomeIcons.truckLoading,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: 130,
+                                      height: 40,
+                                      color: Color(0xFF1C3879),
+                                      textStyle: FlutterFlowTheme.of(context)
                                           .subtitle2
                                           .override(
-                                            fontFamily: 'Outfit',
-                                            color: Color(0xFF2351A3),
-                                            fontWeight: FontWeight.normal,
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
                                           ),
-                                      validator: _model
-                                          .vehicleNumberControllerValidator
-                                          .asValidator(context),
-                                    ),
-                                  ),
-                                ),
-                                FlutterFlowIconButton(
-                                  borderColor: Colors.transparent,
-                                  borderRadius: 10,
-                                  borderWidth: 1,
-                                  buttonSize: 40,
-                                  icon: Icon(
-                                    Icons.photo_camera,
-                                    color: Color(0xFF1C3879),
-                                    size: 20,
-                                  ),
-                                  showLoadingIndicator: true,
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 25, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 40,
-                                    icon: Icon(
-                                      Icons.remove_red_eye,
-                                      color: Color(0xFF1C3879),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('viewVehicleNoImage pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        30, 15, 10, 5),
-                                    child: TextFormField(
-                                      controller: _model.poNumberController,
-                                      readOnly: true,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        hintText: 'PO Number',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF607EAA),
-                                            ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0xFF4AA0EB),
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0xFF4AA0EB),
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        filled: true,
-                                        fillColor: Color(0xFFF5EFE6),
-                                        contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                10, 10, 10, 10),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      final selectedMedia = await selectMedia(
+                                        imageQuality: 50,
+                                        multiImage: false,
+                                      );
+                                      if (selectedMedia != null &&
+                                          selectedMedia.every((m) =>
+                                              validateFileFormat(
+                                                  m.storagePath, context))) {
+                                        setState(() =>
+                                            _model.isMediaUploading2 = true);
+                                        var selectedUploadedFiles =
+                                            <FFUploadedFile>[];
+
+                                        try {
+                                          showUploadMessage(
+                                            context,
+                                            'Uploading file...',
+                                            showLoading: true,
+                                          );
+                                          selectedUploadedFiles = selectedMedia
+                                              .map((m) => FFUploadedFile(
+                                                    name: m.storagePath
+                                                        .split('/')
+                                                        .last,
+                                                    bytes: m.bytes,
+                                                    height:
+                                                        m.dimensions?.height,
+                                                    width: m.dimensions?.width,
+                                                  ))
+                                              .toList();
+                                        } finally {
+                                          ScaffoldMessenger.of(context)
+                                              .hideCurrentSnackBar();
+                                          _model.isMediaUploading2 = false;
+                                        }
+                                        if (selectedUploadedFiles.length ==
+                                            selectedMedia.length) {
+                                          setState(() {
+                                            _model.uploadedLocalFile2 =
+                                                selectedUploadedFiles.first;
+                                          });
+                                          showUploadMessage(
+                                              context, 'Success!');
+                                        } else {
+                                          setState(() {});
+                                          showUploadMessage(context,
+                                              'Failed to upload media');
+                                          return;
+                                        }
+                                      }
+                                    },
+                                    text: 'Invoice',
+                                    icon: FaIcon(
+                                      FontAwesomeIcons.fileInvoiceDollar,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: 130,
+                                      height: 40,
+                                      color: Color(0xFF1C3879),
+                                      textStyle: FlutterFlowTheme.of(context)
                                           .subtitle2
                                           .override(
-                                            fontFamily: 'Outfit',
-                                            color: Color(0xFF2351A3),
-                                            fontWeight: FontWeight.normal,
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
                                           ),
-                                      validator: _model
-                                          .poNumberControllerValidator
-                                          .asValidator(context),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
                                   ),
-                                ),
-                                FlutterFlowIconButton(
-                                  borderColor: Colors.transparent,
-                                  borderRadius: 10,
-                                  borderWidth: 1,
-                                  buttonSize: 40,
-                                  icon: Icon(
-                                    Icons.photo_camera,
-                                    color: Color(0xFF1C3879),
-                                    size: 20,
-                                  ),
-                                  showLoadingIndicator: true,
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 25, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 40,
-                                    icon: Icon(
-                                      Icons.remove_red_eye,
-                                      color: Color(0xFF1C3879),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  var _shouldSetState = false;
+                                  if (_model.formKey.currentState == null ||
+                                      !_model.formKey.currentState!
+                                          .validate()) {
+                                    return;
+                                  }
+                                  if (_model.dropDownValue == null) {
+                                    return;
+                                  }
+                                  _model.createGatepassResponse =
+                                      await CreateGatepassCall.call();
+                                  _shouldSetState = true;
+                                  if ((_model
+                                          .createGatepassResponse?.succeeded ??
+                                      true)) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Successfully create gatepass',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor: Color(0x00000000),
+                                      ),
+                                    );
+                                  } else {
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+
+                                  if (_shouldSetState) setState(() {});
                                 },
                                 text: 'Create Gatepass',
                                 icon: FaIcon(

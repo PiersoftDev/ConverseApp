@@ -186,6 +186,37 @@ class FetchAllProjectsCall {
   }
 }
 
+class CreateGatepassCall {
+  static Future<ApiCallResponse> call({
+    String? driverName = '',
+    String? driverPhoneNumber = '',
+    String? material = '',
+    String? gatepassVehicleImg = '',
+    String? purchaseOrderImg = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'createGatepass',
+      apiUrl: 'https://562163236fb0.in.ngrok.io/converse/v1/gatepass/',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      params: {
+        'driverName': driverName,
+        'driverPhoneNumber': driverPhoneNumber,
+        'material': material,
+        'gatepassVehicleImg': gatepassVehicleImg,
+        'purchaseOrderImg': purchaseOrderImg,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
