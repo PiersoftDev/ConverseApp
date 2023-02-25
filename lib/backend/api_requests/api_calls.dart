@@ -220,6 +220,25 @@ class CreateGatepassCall {
   }
 }
 
+class GetProjectsGatepassCall {
+  static Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getProjectsGatepass',
+      apiUrl:
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/gatepass/0d6d4968-0193-454c-ad4e-09ce8104ef03',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'appliction/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

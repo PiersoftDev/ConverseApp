@@ -1,4 +1,6 @@
+import '../backend/api_requests/api_calls.dart';
 import '../components/gatepass_period_filter_widget.dart';
+import '../components/no_data_component_widget.dart';
 import '../flutter_flow/flutter_flow_expanded_image_view.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -140,424 +142,491 @@ class _GatepassActivityPageWidgetState
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
-                      child: ListView(
-                        padding: EdgeInsets.zero,
-                        scrollDirection: Axis.vertical,
-                        children: [
-                          Container(
-                            width: 100,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF5EFE6),
-                            ),
-                            child: Card(
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          SingleChildScrollView(
-                                            scrollDirection: Axis.horizontal,
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                Container(
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.5,
-                                                  height: 200,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
+                      child: FutureBuilder<ApiCallResponse>(
+                        future: GetProjectsGatepassCall.call(),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50,
+                                height: 50,
+                                child: CircularProgressIndicator(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                ),
+                              ),
+                            );
+                          }
+                          final listViewGetProjectsGatepassResponse =
+                              snapshot.data!;
+                          return Builder(
+                            builder: (context) {
+                              final getProjectGatepass = getJsonField(
+                                listViewGetProjectsGatepassResponse.jsonBody,
+                                r'''$[*]''',
+                              ).toList();
+                              if (getProjectGatepass.isEmpty) {
+                                return Center(
+                                  child: NoDataComponentWidget(),
+                                );
+                              }
+                              return ListView.builder(
+                                padding: EdgeInsets.zero,
+                                scrollDirection: Axis.vertical,
+                                itemCount: getProjectGatepass.length,
+                                itemBuilder:
+                                    (context, getProjectGatepassIndex) {
+                                  final getProjectGatepassItem =
+                                      getProjectGatepass[
+                                          getProjectGatepassIndex];
+                                  return Container(
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFF5EFE6),
+                                    ),
+                                    child: Card(
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              width: double.infinity,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                  ),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0),
-                                                    child: BackdropFilter(
-                                                      filter: ImageFilter.blur(
-                                                        sigmaX: 2,
-                                                        sigmaY: 2,
-                                                      ),
-                                                      child: Container(
-                                                        width: MediaQuery.of(
-                                                                context)
-                                                            .size
-                                                            .width,
-                                                        height: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            1,
-                                                        child: Stack(
-                                                          children: [
-                                                            InkWell(
-                                                              onTap: () async {
-                                                                await Navigator
-                                                                    .push(
-                                                                  context,
-                                                                  PageTransition(
-                                                                    type: PageTransitionType
-                                                                        .fade,
-                                                                    child:
-                                                                        FlutterFlowExpandedImageView(
-                                                                      image: Image
-                                                                          .network(
-                                                                        'https://picsum.photos/seed/341/600',
-                                                                        fit: BoxFit
-                                                                            .contain,
-                                                                      ),
-                                                                      allowRotation:
-                                                                          false,
-                                                                      useHeroAnimation:
-                                                                          false,
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                              child:
-                                                                  Image.network(
-                                                                'https://picsum.photos/seed/341/600',
-                                                                width: double
-                                                                    .infinity,
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  SingleChildScrollView(
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.5,
+                                                          height: 200,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        0),
+                                                            child:
+                                                                BackdropFilter(
+                                                              filter:
+                                                                  ImageFilter
+                                                                      .blur(
+                                                                sigmaX: 2,
+                                                                sigmaY: 2,
+                                                              ),
+                                                              child: Container(
+                                                                width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width,
                                                                 height: MediaQuery.of(
                                                                             context)
                                                                         .size
                                                                         .height *
                                                                     1,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0, 0.65),
-                                                              child: Container(
-                                                                width: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .width *
-                                                                    0.4,
-                                                                height: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .height *
-                                                                    0.05,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Color(
-                                                                      0x3FE8DFCA),
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0,
-                                                                          0.5),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10,
-                                                                            10,
-                                                                            10,
-                                                                            10),
-                                                                    child:
-                                                                        AutoSizeText(
-                                                                      'Hello World',
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Color(0xFF1C3879),
+                                                                child: Stack(
+                                                                  children: [
+                                                                    InkWell(
+                                                                      onTap:
+                                                                          () async {
+                                                                        await Navigator
+                                                                            .push(
+                                                                          context,
+                                                                          PageTransition(
+                                                                            type:
+                                                                                PageTransitionType.fade,
+                                                                            child:
+                                                                                FlutterFlowExpandedImageView(
+                                                                              image: Image.network(
+                                                                                getJsonField(
+                                                                                  getProjectGatepassItem,
+                                                                                  r'''$.vehicleImgUrl''',
+                                                                                ),
+                                                                                fit: BoxFit.contain,
+                                                                              ),
+                                                                              allowRotation: false,
+                                                                              useHeroAnimation: false,
+                                                                            ),
                                                                           ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.5,
-                                                  height: 200,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0),
-                                                    child: BackdropFilter(
-                                                      filter: ImageFilter.blur(
-                                                        sigmaX: 2,
-                                                        sigmaY: 2,
-                                                      ),
-                                                      child: Container(
-                                                        width: MediaQuery.of(
-                                                                context)
-                                                            .size
-                                                            .width,
-                                                        height: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            1,
-                                                        child: Stack(
-                                                          children: [
-                                                            InkWell(
-                                                              onTap: () async {
-                                                                await Navigator
-                                                                    .push(
-                                                                  context,
-                                                                  PageTransition(
-                                                                    type: PageTransitionType
-                                                                        .fade,
-                                                                    child:
-                                                                        FlutterFlowExpandedImageView(
-                                                                      image: Image
+                                                                        );
+                                                                      },
+                                                                      child: Image
                                                                           .network(
-                                                                        'https://picsum.photos/seed/341/600',
+                                                                        getJsonField(
+                                                                          getProjectGatepassItem,
+                                                                          r'''$.vehicleImgUrl''',
+                                                                        ),
+                                                                        width: double
+                                                                            .infinity,
+                                                                        height:
+                                                                            MediaQuery.of(context).size.height *
+                                                                                1,
                                                                         fit: BoxFit
-                                                                            .contain,
+                                                                            .cover,
                                                                       ),
-                                                                      allowRotation:
-                                                                          false,
-                                                                      tag:
-                                                                          'imageTag2',
-                                                                      useHeroAnimation:
-                                                                          true,
                                                                     ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                              child: Hero(
-                                                                tag:
-                                                                    'imageTag2',
-                                                                transitionOnUserGestures:
-                                                                    true,
-                                                                child: Image
-                                                                    .network(
-                                                                  'https://picsum.photos/seed/341/600',
-                                                                  width: double
-                                                                      .infinity,
-                                                                  height: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .height *
-                                                                      1,
-                                                                  fit: BoxFit
-                                                                      .cover,
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0,
+                                                                              0.65),
+                                                                      child:
+                                                                          Container(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.4,
+                                                                        height: MediaQuery.of(context).size.height *
+                                                                            0.05,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Color(0x3FE8DFCA),
+                                                                        ),
+                                                                        child:
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0,
+                                                                              0.5),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                10,
+                                                                                10,
+                                                                                10,
+                                                                                10),
+                                                                            child:
+                                                                                AutoSizeText(
+                                                                              getJsonField(
+                                                                                getProjectGatepassItem,
+                                                                                r'''$.vehicleNo''',
+                                                                              ).toString(),
+                                                                              textAlign: TextAlign.center,
+                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: Color(0xFF1C3879),
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
                                                               ),
                                                             ),
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0, 0.65),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.5,
+                                                          height: 200,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        0),
+                                                            child:
+                                                                BackdropFilter(
+                                                              filter:
+                                                                  ImageFilter
+                                                                      .blur(
+                                                                sigmaX: 2,
+                                                                sigmaY: 2,
+                                                              ),
                                                               child: Container(
                                                                 width: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .width *
-                                                                    0.4,
+                                                                        context)
+                                                                    .size
+                                                                    .width,
                                                                 height: MediaQuery.of(
                                                                             context)
                                                                         .size
                                                                         .height *
-                                                                    0.05,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Color(
-                                                                      0x3FE8DFCA),
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0,
-                                                                          0.5),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10,
-                                                                            10,
-                                                                            10,
-                                                                            10),
-                                                                    child:
-                                                                        AutoSizeText(
-                                                                      'Hello World',
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Color(0xFF1C3879),
+                                                                    1,
+                                                                child: Stack(
+                                                                  children: [
+                                                                    InkWell(
+                                                                      onTap:
+                                                                          () async {
+                                                                        await Navigator
+                                                                            .push(
+                                                                          context,
+                                                                          PageTransition(
+                                                                            type:
+                                                                                PageTransitionType.fade,
+                                                                            child:
+                                                                                FlutterFlowExpandedImageView(
+                                                                              image: Image.network(
+                                                                                getJsonField(
+                                                                                  getProjectGatepassItem,
+                                                                                  r'''$.poNumberImgUrl''',
+                                                                                ),
+                                                                                fit: BoxFit.contain,
+                                                                              ),
+                                                                              allowRotation: false,
+                                                                              tag: getJsonField(
+                                                                                getProjectGatepassItem,
+                                                                                r'''$.poNumberImgUrl''',
+                                                                              ),
+                                                                              useHeroAnimation: true,
+                                                                            ),
                                                                           ),
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          Hero(
+                                                                        tag:
+                                                                            getJsonField(
+                                                                          getProjectGatepassItem,
+                                                                          r'''$.poNumberImgUrl''',
+                                                                        ),
+                                                                        transitionOnUserGestures:
+                                                                            true,
+                                                                        child: Image
+                                                                            .network(
+                                                                          getJsonField(
+                                                                            getProjectGatepassItem,
+                                                                            r'''$.poNumberImgUrl''',
+                                                                          ),
+                                                                          width:
+                                                                              double.infinity,
+                                                                          height:
+                                                                              MediaQuery.of(context).size.height * 1,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
                                                                     ),
-                                                                  ),
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0,
+                                                                              0.65),
+                                                                      child:
+                                                                          Container(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.4,
+                                                                        height: MediaQuery.of(context).size.height *
+                                                                            0.05,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Color(0x3FE8DFCA),
+                                                                        ),
+                                                                        child:
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0,
+                                                                              0.5),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                10,
+                                                                                10,
+                                                                                10,
+                                                                                10),
+                                                                            child:
+                                                                                AutoSizeText(
+                                                                              getJsonField(
+                                                                                getProjectGatepassItem,
+                                                                                r'''$.poNumber''',
+                                                                              ).toString(),
+                                                                              textAlign: TextAlign.center,
+                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: Color(0xFF1C3879),
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: double.infinity,
+                                                    height: 100,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFF1C3879),
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10,
+                                                                          10,
+                                                                          0,
+                                                                          0),
+                                                              child: Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  getProjectGatepassItem
+                                                                      .toString(),
+                                                                  '\$.driverName',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          50,
+                                                                          10,
+                                                                          0,
+                                                                          0),
+                                                              child: Text(
+                                                                getJsonField(
+                                                                  getProjectGatepassItem,
+                                                                  r'''$.driverNumber''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
                                                         ),
-                                                      ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1, 0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        10,
+                                                                        0,
+                                                                        0),
+                                                            child: Text(
+                                                              getJsonField(
+                                                                getProjectGatepassItem,
+                                                                r'''$.material''',
+                                                              ).toString(),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1, 0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        10,
+                                                                        0,
+                                                                        0),
+                                                            child: Text(
+                                                              getJsonField(
+                                                                getProjectGatepassItem,
+                                                                r'''$.lastUpdatedTime''',
+                                                              ).toString(),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          Container(
-                                            width: double.infinity,
-                                            height: 100,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF1C3879),
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10, 10, 0, 0),
-                                                      child: Text(
-                                                        'Hello World',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(150, 10,
-                                                                  0, 0),
-                                                      child: Text(
-                                                        'Hello World',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          -1, 0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10, 10, 0, 0),
-                                                    child: Text(
-                                                      'Hello World',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          -1, 0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10, 10, 0, 0),
-                                                    child: Text(
-                                                      'Hello World',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                                  );
+                                },
+                              );
+                            },
+                          );
+                        },
                       ),
                     ),
                   ],
