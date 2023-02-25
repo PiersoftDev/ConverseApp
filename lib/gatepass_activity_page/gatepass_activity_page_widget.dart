@@ -548,7 +548,7 @@ class _GatepassActivityPageWidgetState
                                                                     child: Text(
                                                                       getJsonField(
                                                                         getProjectGatepassItem,
-                                                                        r'''$.driverNumber''',
+                                                                        r'''$.driverPhoneNumber''',
                                                                       ).toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
