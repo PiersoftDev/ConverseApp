@@ -249,7 +249,7 @@ class _GatepassPageWidgetState extends State<GatepassPageWidget> {
                                   FFButtonWidget(
                                     onPressed: () async {
                                       final selectedMedia = await selectMedia(
-                                        imageQuality: 50,
+                                        imageQuality: 30,
                                         multiImage: false,
                                       );
                                       if (selectedMedia != null &&
