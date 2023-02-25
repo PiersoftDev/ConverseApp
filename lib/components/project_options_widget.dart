@@ -107,7 +107,7 @@ class _ProjectOptionsWidgetState extends State<ProjectOptionsWidget> {
                 ),
                 child: InkWell(
                   onTap: () async {
-                    context.pushNamed('gatepass_page');
+                    context.pushNamed('gatepass_activity_page');
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -124,7 +124,7 @@ class _ProjectOptionsWidgetState extends State<ProjectOptionsWidget> {
                         ),
                         showLoadingIndicator: true,
                         onPressed: () async {
-                          context.pushNamed('gatepass_page');
+                          context.pushNamed('gatepass_activity_page');
                         },
                       ),
                       SelectionArea(
