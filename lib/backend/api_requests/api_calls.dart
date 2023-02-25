@@ -244,6 +244,32 @@ class GetProjectsGatepassCall {
   }
 }
 
+class MarkExitCall {
+  static Future<ApiCallResponse> call({
+    String? projectId = '',
+    String? gatepassId = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'markExit',
+      apiUrl:
+          'http://ec2-65-2-39-255.ap-south-1.compute.amazonaws.com:8080/converse/v1/gatepass/markExit',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {
+        'projectId': projectId,
+        'gatepassId': gatepassId,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

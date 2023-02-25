@@ -14,6 +14,13 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class GatepassActivityPageModel extends FlutterFlowModel {
+  ///  State fields for stateful widgets in this page.
+
+  // Stores action output result for [Backend Call - API (markExit)] action in Button widget.
+  ApiCallResponse? apiResult6sa;
+  // Stores action output result for [Backend Call - API (getProjectsGatepass)] action in Button widget.
+  ApiCallResponse? apiResultv9u;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

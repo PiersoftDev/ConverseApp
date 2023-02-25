@@ -662,9 +662,77 @@ class _GatepassActivityPageWidgetState
                                                                         5),
                                                             child:
                                                                 FFButtonWidget(
-                                                              onPressed: () {
-                                                                print(
-                                                                    'Button pressed ...');
+                                                              onPressed:
+                                                                  () async {
+                                                                var _shouldSetState =
+                                                                    false;
+                                                                _model.apiResult6sa =
+                                                                    await MarkExitCall
+                                                                        .call(
+                                                                  projectId:
+                                                                      FFAppState()
+                                                                          .selectedProjectId,
+                                                                  gatepassId:
+                                                                      getJsonField(
+                                                                    getProjectGatepassItem,
+                                                                    r'''$.id''',
+                                                                  ).toString(),
+                                                                );
+                                                                _shouldSetState =
+                                                                    true;
+                                                                if ((_model
+                                                                        .apiResult6sa
+                                                                        ?.succeeded ??
+                                                                    true)) {
+                                                                  ScaffoldMessenger.of(
+                                                                          context)
+                                                                      .showSnackBar(
+                                                                    SnackBar(
+                                                                      content:
+                                                                          Text(
+                                                                        'Gatepass marked as exited.',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                        ),
+                                                                      ),
+                                                                      duration: Duration(
+                                                                          milliseconds:
+                                                                              1000),
+                                                                      backgroundColor:
+                                                                          Color(
+                                                                              0x00000000),
+                                                                    ),
+                                                                  );
+                                                                  _model.apiResultv9u =
+                                                                      await GetProjectsGatepassCall
+                                                                          .call(
+                                                                    projectId:
+                                                                        FFAppState()
+                                                                            .selectedProjectId,
+                                                                  );
+                                                                  _shouldSetState =
+                                                                      true;
+                                                                  if (!(_model
+                                                                          .apiResultv9u
+                                                                          ?.succeeded ??
+                                                                      true)) {
+                                                                    if (_shouldSetState)
+                                                                      setState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+                                                                } else {
+                                                                  if (_shouldSetState)
+                                                                    setState(
+                                                                        () {});
+                                                                  return;
+                                                                }
+
+                                                                if (_shouldSetState)
+                                                                  setState(
+                                                                      () {});
                                                               },
                                                               text: 'Mark Exit',
                                                               options:
