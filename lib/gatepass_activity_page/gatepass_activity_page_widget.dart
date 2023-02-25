@@ -143,7 +143,9 @@ class _GatepassActivityPageWidgetState
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                       child: FutureBuilder<ApiCallResponse>(
-                        future: GetProjectsGatepassCall.call(),
+                        future: GetProjectsGatepassCall.call(
+                          projectId: FFAppState().selectedProjectId,
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
