@@ -100,15 +100,15 @@ class _ProjectOptionsWidgetState extends State<ProjectOptionsWidget> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-              child: InkWell(
-                onTap: () async {
-                  context.pushNamed('gatepass_activity_page');
-                },
-                child: Container(
-                  width: 60,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF5EFE6),
-                  ),
+              child: Container(
+                width: 60,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF5EFE6),
+                ),
+                child: InkWell(
+                  onTap: () async {
+                    context.pushNamed('gatepass_page');
+                  },
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -123,8 +123,8 @@ class _ProjectOptionsWidgetState extends State<ProjectOptionsWidget> {
                           size: 30,
                         ),
                         showLoadingIndicator: true,
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          context.pushNamed('gatepass_page');
                         },
                       ),
                       SelectionArea(
